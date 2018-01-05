@@ -19,6 +19,8 @@ class App extends Component {
         <Route path="/my_workouts" component={MyWorkouts}/>
         <Route path="/workout" component={WorkoutScreen}/>
       </div>
+
+
     );
   }
 }
