@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-class MyWorkouts extends Compoent {
+class MyWorkouts extends Component {
 
 	render () {
 		return (
-
+			<div></div>
 		)
 	}
 }
