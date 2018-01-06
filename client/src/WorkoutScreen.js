@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import WorkoutCard from './WorkoutCard.js';
 const quad = require('./img/quadriceps.jpg');
 const ham = require('./img/hamstrings.jpg');
 const hip = require('./img/hips.jpg');
@@ -6,17 +7,64 @@ const lBack = require('./img/lower_back.jpg');
 const uBack = require('./img/upper_back.jpg');
 const shoulder = require('./img/shoulders.jpg');
 
+
 class WorkoutScreen extends Component {
 
-	render () {
-		return (
-			    <div class="container" id="topDiv">
-			      <div class="row">
+	constructor() {
+		super();
+		this.state = {
+			time: 1,
+			muscles: [
+				{image: quad, title: 'Quads', isPicked: false}, 
+				{image: ham, title: 'Hamstrings', isPicked: false},
+				{image: hip, title: 'Hips', isPicked: false},
+				{image: lBack, title: 'Lower Back', isPicked: false},
+				{image: uBack, title: 'Upper Back', isPicked: false},
+				{image: shoulder, title: 'Shoulders', isPicked: false}
+			]
+		};
+	}
 
-			        <div class="col-lg-12">
+
+	pickMuscle(cardIndex) {
+		var muscleToPick = {...this.state.muscles[cardIndex]};
+
+		if (muscleToPick.isPicked) {
+			return;
+		}
+
+		muscleToPick.isPicked = true;
+
+		var newMuscles = this.state.muscles.map((muscle, index)=>{
+			if (index === cardIndex) {
+				return muscleToPick;
+			}
+			return muscle
+		});
+
+	}
+
+
+
+
+	render () {
+
+		var workoutCards = this.state.muscles.map((muscle, index)=> {
+			return <WorkoutCard pickMuscle={this.pickMuscle.bind(this, index)}
+								muscleImage={muscle.image}
+								muscleTitle={muscle.title}
+								isPicked={muscle.isPicked}
+								key={index}/>
+		})
+
+		return (
+			    <div className="container" id="topDiv">
+			      <div className="row">
+			      	{workoutCards}
+			        <div className="col-lg-12">
 			          <form id="yoga-form">
-			            <div class="submitNav">
-			            <span class="durationText">Select Workout Duration</span>
+			            <div className="submitNav">
+			            <span className="durationText">Select Workout Duration</span>
 			            <select id="select">
 			              <option>1</option>
 			              <option>2</option>
@@ -31,74 +79,21 @@ class WorkoutScreen extends Component {
 			              <option>20</option>
 			            </select>
 			          </div>
-			            <div class="card-deck row">
-			              <div class="cardStyle card col-lg-4">
-			                <img class="card-img-top" src={quad} />
-			                <div class="card-block">
-			                  <h4 class="card-title">Quads</h4>
-			                  <div class="addButton">
-			                  <button type="button" class="btn btn-success btn-sm" id="addButton1" value="quads">Add</button>
-			                  </div>
-			                </div>
-			              </div>
-			              <div class="cardStyle card col-lg-4">
-			                <img class="card-img-top" src={ham}></img>
-			                <div class="card-block">
-			                  <h4 class="card-title">Hamstrings</h4>
-			                  <div class="addButton">
-			                  <button type="button" class="btn btn-success btn-sm" id="addButton2" value="hamstrings">Add</button>
-			                  </div>
-			                </div>
-			              </div>
-			              <div class="cardStyle card col-lg-4">
-			                <img class="card-img-top" src={hip}></img>
-			                <div class="card-block">
-			                  <h4 class="card-title">Hips</h4>
-			                  <div class="addButton">
-			                  <button type="button" class="btn btn-success btn-sm" id="addButton3" value="hips">Add</button>
-			                  </div>
-			                </div>
-			              </div>
-			              <div class="cardStyle card col-lg-4">
-			                <img class="card-img-top" src={lBack}></img>
-			                <div class="card-block">
-			                  <h4 class="card-title">Lower Back</h4>
-			                  <div class="addButton">
-			                  <button type="button" class="btn btn-success btn-sm" id="addButton4" value="lowerBack">Add</button>
-			                  </div>
-			                </div>
-			              </div>
-			              <div class="cardStyle card col-lg-4">
-			                <img class="card-img-top" src={uBack}></img>
-			                <div class="card-block">
-			                  <h4 class="card-title">Upper Back</h4>
-			                  <div class="addButton">
-			                  <button type="button" class="btn btn-success btn-sm" id="addButton5" value="upperBack">Add</button>
-			                  </div>
-			                </div>
-			              </div>
-			              <div class="cardStyle card col-lg-4">
-			                <img class="card-img-top" src={shoulder}></img>
-			                <div class="card-block">
-			                  <h4 class="card-title">Shoulders</h4>
-			                  <div class="addButton">
-			                  <button type="button" class="btn btn-success btn-sm" id="addButton6" value="shoulders">Add</button>
-			                  </div>
-			                </div>
-			              </div>
+			            <div className="card-deck row">
+
 			            </div>
-			            <div class="submitButton">
-			            <button type="submit" class="btn btn-primary" id="submission">Generate Workout</button>
+			            <div className="submitButton">
+			            <button type="submit" className="btn btn-primary" id="submission">Generate Workout</button>
 			          </div>
 			          </form>
 
 			        </div>
 			        </div>
-			        <div class="row">
-			          <div class="col-lg-12">
+			        <div className="row">
+			          <div className="col-lg-12">
 			            <div id="result">
 
-			              <table id="summaryTable" class="tableStyle table table-striped">
+			              <table id="summaryTable" className="tableStyle table table-striped">
 			              </table>
 			            </div>
 			          </div>

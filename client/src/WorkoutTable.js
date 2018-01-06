@@ -1,10 +1,35 @@
 import React, { Component } from 'react';
+import WorkoutListItem from './WorkoutListItem.js';
 
-class WorkoutTable extends Compoent {
+class WorkoutTable extends Component {
+
+	constructor() {
+		super();
+		this.state = {
+			time: 10,
+			muscles: []
+		}
+	}
 
 	render () {
-		return (
 
+		var poseData = this.state.muscles.map((muscle, index)=>{
+			return <WorkoutListItem key={index} {...muscle}/>
+		})
+
+		return (
+			<div>
+				<table>
+					<thead>
+						<tr>
+							<th>Duration</th>
+							<th>Muscle Group</th>
+							<th>Pose</th>
+						</tr>
+					</thead>
+					{poseData}
+				</table>
+			</div>
 		)
 	}
 }
