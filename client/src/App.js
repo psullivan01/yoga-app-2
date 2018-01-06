@@ -9,18 +9,22 @@ import { Route } from 'react-router';
 class App extends Component {
   render() {
     return (
+
       <div>
         <div className="App">
           <div className="navbar">
+
 
             <Link to="/workout">Create New Workout</Link>
             <Link to="/my_workouts">My Workouts</Link>
 
           </div>
           
-          <Route path="/workout" component={WorkoutScreen}/>
-          <Route path="/my_workouts" component={MyWorkouts}/>
         </div>
+
+        <Route path="/my_workouts" component={MyWorkouts}/>
+        <Route path="/workout" component={WorkoutScreen}/>
+
       </div>
     );
   }
