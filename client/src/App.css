@@ -83,8 +83,8 @@ header.masthead {
     padding: 7rem; } }
 
 .features-icons {
-  padding-top: 7rem;
-  padding-bottom: 7rem; }
+  padding-top: 2rem;
+  padding-bottom: 2rem; }
   .features-icons .features-icons-item {
     max-width: 20rem; }
     .features-icons .features-icons-item .features-icons-icon {
@@ -103,105 +103,10 @@ header.masthead {
       max-width: 12rem;
       box-shadow: 0px 5px 5px 0px #adb5bd; }
 
-.call-to-action {
-  position: relative;
-  background-color: #343a40;
-  background: url("") no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  padding-top: 7rem;
-  padding-bottom: 7rem; }
-  .call-to-action .overlay {
-    position: absolute;
-    background-color: #212529;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    opacity: 0.3; }
+.nav-link {
+  color: #0d98dd;
+}
 
 footer.footer {
   padding-top: 4rem;
   padding-bottom: 4rem; }
-
-
-
-.imageHeader {
-  padding-top: 100px;
-  background-image: url(https://www.lookwithinyoga.com/wp-content/uploads/2017/03/yoga-background-banner.jpg);
-  height: 470px;
-  width:100%;
-}
-
-.imageHeader h2 {
-  font-size: 20px;
-  color: #666666;
-}
-.container{
-  padding-top: 20px;
-}
-.submitNav {
-  text-align: center;
-  padding-bottom: 20px;
-}
-
-.durationText {
-  font-size:20px;
-}
-
-.cardStyle {
-  border-radius: 10px;
-  border: 0px;
-}
-.card-title {
-  padding-top: 5px;
-  font-size: 20px;
-}
-
-.card-img-top{
-  padding-top: 15px;
-}
-.card-block {
-text-align: center;
-}
-
-.addButton {
-  padding-bottom: 5px;
-}
-
-.tableStyle {
-
-}
-
-#select {
-  width: 100px;
-  height: 25px;
-}
-
-#yoga-form {
-  padding-bottom: 25px;
-}
-.submitButton {
-  text-align: center;
-  padding-top: 25px;
-}
-
-#reload {
-  display: none;
-}
-
-#ytplayer {
-  display: none;
-}
-
- #mute {
-   margin-left: 10px;
-   display: none;
- }
-
- #play {
-   margin-left: 10px;
-   display: none;
- }

@@ -17,7 +17,7 @@ class App extends Component {
               <a class="navbar-brand" href="#">
                 <img src="http://diylogodesigns.com/blog/wp-content/uploads/2016/03/creative-yoga-logo-design.png" width="30" height="30" alt=""/>
               </a>
-              <a class="navbar-brand" href="#">P&ZYoga</a>
+              <a class="navbar-brand" href="#">Yoga</a>
             </nav>
 
 
@@ -87,6 +87,8 @@ class App extends Component {
             <div class="container">
               <div class="row">
                 <div class="col-lg-4">
+                <img src="https://www.shareicon.net/data/128x128/2016/09/07/827300_yoga_512x512.png" alt="Smiley face" width="100" height="100"/>
+
                   <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
                       <i class="icon-screen-desktop m-auto text-primary"></i>
@@ -96,6 +98,7 @@ class App extends Component {
                   </div>
                 </div>
                 <div class="col-lg-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSircCGnN-NNrwSlTJKawEYEIaT0xQC-8Cr23kRavWmlAVGgVVD" alt="Smiley face" width="100" height="100"/>
                   <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
                       <i class="icon-layers m-auto text-primary"></i>
@@ -105,6 +108,7 @@ class App extends Component {
                   </div>
                 </div>
                 <div class="col-lg-4">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbi-nwbZOPSTjDdiobCkfzhbdz-E81sKfC-79jB8nga2-lTxMT" alt="Smiley face" width="100" height="100"/>
                   <div class="features-icons-item mx-auto mb-0 mb-lg-3">
                     <div class="features-icons-icon d-flex">
                       <i class="icon-check m-auto text-primary"></i>
