@@ -44,9 +44,6 @@ class WorkoutScreen extends Component {
 
 	}
 
-
-
-
 	render () {
 
 		var workoutCards = this.state.muscles.map((muscle, index)=> {
