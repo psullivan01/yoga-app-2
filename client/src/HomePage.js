@@ -54,18 +54,6 @@ class HomePage extends Component {
                     <img src="https://secure2.convio.net/seva/images/content/pagebuilder/longviewyogastudio.png" width="400" height="300" alt=""/>
                     <h3 className="mb-5">DROP AND GIVE ME ZEN!</h3>
                   </div>
-                  <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
-                    <form>
-                      <div className="form-row">
-                        <div className="col-12 col-md-9 mb-2 mb-md-0">
-                          <input type="email" className="form-control form-control-lg" placeholder="Enter your email..."/>
-                        </div>
-                        <div className="col-12 col-md-3">
-                          <button type="submit" className="btn btn-block btn-lg btn-primary">Sign up!</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
                 </div>
               </div>
             </header>

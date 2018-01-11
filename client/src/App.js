@@ -15,12 +15,11 @@ class App extends Component {
           <div className="container">
             <nav className="navbar navbar-light bg-faded">
               <a className="navbar-brand" href="#">
-                <img src="http://diylogodesigns.com/blog/wp-content/uploads/2016/03/creative-yoga-logo-design.png" width="30" height="30" alt=""/>
+                <img src="https://seeklogo.com/images/O/OM_YOGA-logo-6F30131211-seeklogo.com.png" width="50" height="50" alt=""/>
               </a>
               <a className="navbar-brand" href="#">Yoga</a>
             </nav>
-
-
+            
             <ul className="nav justify-content-end">
               <li className="nav-item">
                 <a className="nav-link active" href="/">Home</a>
@@ -55,18 +54,6 @@ class App extends Component {
             <div className="col-xl-9 mx-auto">
               <img src="https://secure2.convio.net/seva/images/content/pagebuilder/longviewyogastudio.png" width="400" height="300" alt=""/>
               <h3 className="mb-5">DROP AND GIVE ME ZEN!</h3>
-            </div>
-            <div className="col-md-10 col-lg-8 col-xl-7 mx-auto">
-              <form>
-                <div className="form-row">
-                  <div className="col-12 col-md-9 mb-2 mb-md-0">
-                    <input type="email" className="form-control form-control-lg" placeholder="Enter your email..."/>
-                  </div>
-                  <div className="col-12 col-md-3">
-                    <button type="submit" className="btn btn-block btn-lg btn-primary">Sign up!</button>
-                  </div>
-                </div>
-              </form>
             </div>
           </div>
         </div>
