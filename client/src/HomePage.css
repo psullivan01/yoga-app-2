@@ -11,6 +11,11 @@ h6 {
   font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 700; }
 
+.container {
+padding-top: 0px;
+
+}
+
 header.masthead {
   position: relative;
   background-color: #343a40;
@@ -33,8 +38,8 @@ header.masthead {
     font-size: 2rem; }
   @media (min-width: 768px) {
     header.masthead {
-      padding-top: 12rem;
-      padding-bottom: 12rem; }
+      padding-top: 1rem;
+      padding-bottom: 9rem; }
       header.masthead h1 {
         font-size: 3rem; } }
 
