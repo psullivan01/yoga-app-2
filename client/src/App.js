@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MyWorkouts from './MyWorkouts.js';
 import WorkoutScreen from './WorkoutScreen.js';
+import Login from './Login.js';
 import './App.css';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router';
@@ -22,16 +23,16 @@ class App extends Component {
 
             <ul className="nav justify-content-end">
               <li className="nav-item">
-                <a className="nav-link active" href="#">Home</a>
+                <a className="nav-link active" href="/">Home</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/workout">Workout</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/my_workouts">Calendar</a>
+                <a className="nav-link" href="/my_workouts">My Workouts</a>
               </li>
               <li className="nav-item">
-                <a className="btn btn-primary" href="#">Sign In</a>
+                <a className="btn btn-primary" href="/login">Log In</a>
               </li>
             </ul>
 
@@ -39,20 +40,9 @@ class App extends Component {
 
         </nav>
 
-
-        <div className="App">
-          <div className="navbar">
-
-
-            <Link to="/workout">Create New Workout</Link>
-            <Link to="/my_workouts">My Workouts</Link>
-
-          </div>
-
-        </div>
-
         <Route path="/my_workouts" component={MyWorkouts}/>
         <Route path="/workout" component={WorkoutScreen}/>
+        <Route path="/login" component={Login}/>
 
 
 
