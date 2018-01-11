@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './WorkoutCard.css';
 
 class WorkoutCard extends Component {
 
@@ -8,7 +9,7 @@ class WorkoutCard extends Component {
 			isPicked: false
 		}
 	}
-	
+
 	onButtonPress() {
 		if (this.state.isPicked) {
 			this.setState({
