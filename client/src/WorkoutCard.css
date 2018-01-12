@@ -1,0 +1,48 @@
+
+.imageHeader {
+  padding-top: 100px;
+  background-color: #0eb5f7;
+  /*background-image: url(https://www.lookwithinyoga.com/wp-content/uploads/2017/03/yoga-background-banner.jpg);*/
+  height: 470px;
+  width:100%;
+}
+
+.imageHeader h2 {
+  font-size: 20px;
+  color: #666666;
+}
+.container{
+  padding-top: 20px;
+}
+.submitNav {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.durationText {
+  font-size:20px;
+}
+
+.cardStyle {
+  border-radius: 10px;
+  border: 0px;
+}
+.card-title {
+  padding-top: 5px;
+  font-size: 20px;
+}
+
+.card-img-top{
+  padding-top: 15px;
+}
+.card-block {
+text-align: center;
+}
+
+.addButton {
+  padding-bottom: 5px;
+}
+
+.tableStyle {
+
+}

@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
-import MyWorkouts from './MyWorkouts.js';
-import WorkoutScreen from './WorkoutScreen.js';
-import Login from './Login.js';
-import './App.css';
-import { Link } from 'react-router-dom';
-import { Route } from 'react-router';
+import './HomePage.css';
 
-class App extends Component {
-  render() {
-    return (
+class HomePage extends Component {
 
+	render () {
+		return (
+      
       <div>
       <nav className="navbar navbar-light bg-light static-top">
           <div className="container">
@@ -19,7 +15,7 @@ class App extends Component {
               </a>
               <a className="navbar-brand" href="#">Yoga</a>
             </nav>
-            
+
             <ul className="nav justify-content-end">
               <li className="nav-item">
                 <a className="nav-link active" href="/">Home</a>
@@ -100,8 +96,8 @@ class App extends Component {
 
 
       </div>
-    );
-  }
-}
+          );
+        }
+      }
 
-export default App;
+      export default HomePage;

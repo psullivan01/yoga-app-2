@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './WorkoutCard.css';
 
 class WorkoutCard extends Component {
 
