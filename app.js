@@ -4,6 +4,10 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var passport = require('passport');
+var GoogleStrategy = require('passport-google-oauth').OAuthStrategy;
+var authRouter = require('./routes/auth.js');
+
 
 var app = express();
 
@@ -14,6 +18,29 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//Google app.use
+app.use(express.session({ secret: 'keyboard cat' }));
+app.use(passport.initialize());
+app.use(passport.session());
+
+
+//Set up passport
+passport.use(new GoogleStrategy({
+    consumerKey: GOOGLE_CONSUMER_KEY,
+    consumerSecret: GOOGLE_CONSUMER_SECRET,
+    callbackURL: "http://www.example.com/auth/google/callback"
+  },
+  function(token, tokenSecret, profile, done) {
+    //Reach into the users table and find this user if the user isnt there, create the user.. Then, call return done err user.
+      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      //   return done(err, user);
+      // });
+  }
+));
+
+//Set up Routes
+app.use(authRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
