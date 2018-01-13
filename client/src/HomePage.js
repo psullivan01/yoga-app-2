@@ -5,7 +5,7 @@ class HomePage extends Component {
 
 	render () {
 		return (
-      
+
       <div>
       <nav className="navbar navbar-light bg-light static-top">
           <div className="container">
@@ -38,7 +38,7 @@ class HomePage extends Component {
         <Route path="/my_workouts" component={MyWorkouts}/>
         <Route path="/workout" component={WorkoutScreen}/>
         <Route path="/login" component={Login}/>
-
+				<Route path="/" component={HomePage}/>
 
 
 

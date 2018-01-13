@@ -19,7 +19,7 @@ class App extends Component {
               </a>
               <a className="navbar-brand" href="#">Yoga</a>
             </nav>
-            
+
             <ul className="nav justify-content-end">
               <li className="nav-item">
                 <a className="nav-link active" href="/">Home</a>
@@ -42,6 +42,7 @@ class App extends Component {
         <Route path="/my_workouts" component={MyWorkouts}/>
         <Route path="/workout" component={WorkoutScreen}/>
         <Route path="/login" component={Login}/>
+        <Route path="/" component={HomePage}/>
 
 
 
