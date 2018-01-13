@@ -28,6 +28,10 @@ function addCards() {
 
 class WorkoutScreen extends Component {
 
+	state = {
+		
+	}
+
 	constructor() {
 		super();
 
@@ -62,7 +66,7 @@ class WorkoutScreen extends Component {
 		})
 	}
 
-	changeTime(event) {
+	changeTime = (event) => {
 		var time = parseInt(event.target.value)
 		this.setState({
 			time: time
