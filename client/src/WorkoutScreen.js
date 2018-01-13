@@ -41,7 +41,9 @@ class WorkoutScreen extends Component {
 			workoutMuscles: [],
 			workoutMuscleLookups: [],
 			poseRand: [],
-			workoutPoses: []
+			workoutPoses: [],
+			poseTime: "1:00",
+			tableShown: false
 		};
 	}
 
@@ -73,6 +75,21 @@ class WorkoutScreen extends Component {
 		})
 	}
 
+	getPoseDuration(timeMintues, poseCount) {
+		var timeSeconds = timeMintues * 60
+		var timePose = timeSeconds / poseCount
+		var seconds = timePose % 60
+
+		console.log(seconds)
+
+		if (seconds < 10) {
+			seconds = '0' + seconds
+		}
+
+		var timeMinutesSeconds = Math.floor(timePose / 60) + ":" + seconds
+		return timeMinutesSeconds
+	}
+
 	generateWorkout(event) {
 		event.preventDefault()
 		var selectedMuscles = []
@@ -100,11 +117,16 @@ class WorkoutScreen extends Component {
 			}
 		}
 
+		var timeMinutes = this.state.time
+		var poseCount = selectedMuscles.length
+		var poseTimer = this.getPoseDuration(timeMinutes, poseCount)
+
 		this.setState({
 			workoutMuscles: selectedMuscles,
 			workoutMuscleLookups: selectedMuscleLookup,
 			poseRand: poseRand,
-			workoutPoses: selectedPoses
+			workoutPoses: selectedPoses,
+			poseTime: poseTimer
 		})
 	}
 
@@ -121,24 +143,29 @@ class WorkoutScreen extends Component {
 		})
 
 		var workoutTable = this.state.workoutMuscles.map((muscle, index)=>{
-			return (			
-				<div>
-					<table>
-						<thead>
-							<tr>
-								<th>Duration</th>
-								<th>Muscle Group</th>
-								<th>Pose</th>
-							</tr>
-						</thead>
-						<WorkoutListItem key={index}
-										muscle={muscle}
-										time={this.state.time}
-										pose={this.state.workoutPoses[index]}/>
-					</table>
-				</div>
-			)
+			return <WorkoutListItem key={index}
+									muscle={muscle}
+									time={this.state.poseTime}
+									pose={this.state.workoutPoses[index]}/>
 		})
+
+		var finalTable =
+		<div>
+			<table>
+				<thead> 
+					<tr> 
+						<th>Duration</th> 
+						<th>Muscle Group</th> 
+						<th>Pose</th> 
+					</tr> 
+				</thead>
+					{workoutTable}
+			</table>
+		</div>
+
+		if (this.state.workoutPoses.length === 0) {
+			finalTable = ""
+		}
 
 		return (
 			    <div className="container" id="topDiv">
@@ -177,7 +204,7 @@ class WorkoutScreen extends Component {
 			            <div id="result">
 
 			              <table id="summaryTable" className="tableStyle table table-striped">
-			              	{workoutTable}
+			              	{finalTable}
 			              </table>
 			            </div>
 			          </div>
