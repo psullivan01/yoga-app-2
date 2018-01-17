@@ -14,7 +14,7 @@ class WorkoutCard extends Component {
 		}
 
 		return (
-
+		
 	    	<div className="cardStyle card col-lg-4">
 	    		<div className={muscleClass}>
 		        	<img className="card-img-top" src={this.props.muscleImage} alt="muscle"/>
