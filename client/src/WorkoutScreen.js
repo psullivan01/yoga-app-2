@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Route, withRouter } from 'react-router';
 import WorkoutCard from './WorkoutCard.js';
-import WorkoutListItem from './WorkoutListItem';
+import WorkoutListItem from './WorkoutListItem.js';
+import Workout from './Workout.js'
 const quad = require('./img/quadriceps.jpg');
 const ham = require('./img/hamstrings.jpg');
 const hip = require('./img/hips.jpg');
@@ -8,6 +10,7 @@ const lBack = require('./img/lower_back.jpg');
 const uBack = require('./img/upper_back.jpg');
 const shoulder = require('./img/shoulders.jpg');
 
+<Route path="/launch_workout" component={Workout}/>
 
 function addCards() {
 	var muscleImages = [quad, ham, hip, lBack, uBack, shoulder]
@@ -32,8 +35,8 @@ class WorkoutScreen extends Component {
 		
 	}
 
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			time: 1,
@@ -45,6 +48,10 @@ class WorkoutScreen extends Component {
 			poseTime: "1:00",
 			tableShown: false
 		};
+	}
+
+	navigate() {
+		this.props.router.push('/launch_workout')
 	}
 
 	pickCard(cardIndex) {
@@ -151,6 +158,7 @@ class WorkoutScreen extends Component {
 
 		var finalTable =
 		<div>
+			<br/>
 			<table>
 				<thead> 
 					<tr> 
@@ -161,6 +169,10 @@ class WorkoutScreen extends Component {
 				</thead>
 					{workoutTable}
 			</table>
+			<br/>
+			<button type="submit" className="btn btn-primary" id="Begin" onClick={this.navigate.bind(this)}>
+				<a className="btn btn-primary" href="/launch_workout">Begin Workout</a>
+			</button>
 		</div>
 
 		if (this.state.workoutPoses.length === 0) {
@@ -214,4 +226,4 @@ class WorkoutScreen extends Component {
 	}
 }
 
-export default WorkoutScreen;
+export default withRouter(WorkoutScreen);
