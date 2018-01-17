@@ -12,13 +12,13 @@ class App extends Component {
     return (
 
       <div>
-      <nav className="navbar navbar-light bg-light static-top">
+      <nav className="navbar  static-top">
           <div className="container">
             <nav className="navbar navbar-light bg-faded">
-              <a className="navbar-brand" href="#">
+              <a className="navbar-brand" href="/HomePage">
                 <img src="https://seeklogo.com/images/O/OM_YOGA-logo-6F30131211-seeklogo.com.png" width="50" height="50" alt=""/>
               </a>
-              <a className="navbar-brand" href="#">Yoga</a>
+              <a className="navbar-brand" href="/HomePage">Yoga</a>
             </nav>
 
             <ul className="nav justify-content-end">
@@ -46,8 +46,35 @@ class App extends Component {
         <Route path="/login" component={Login}/>
         <Route path="/HomePage" component={HomePage}/>
 
+        <div class="footerTest">
+          <div id="motto">
+            "Inhale the future. Exhale the past." - Unknown
+          </div>
+        </div>
 
+        <div id="footerTest">
+            <div class="footerWrap">
+                <div class="toe">
+                  <h3>Support</h3>
+                  <a href="#">FAQs</a>
+                  <a href="#">Contact Us</a>
+                  <a href="#">Privacy Policy</a>
+                </div>
+                <div class="toe">
+                  <h3>About</h3>
+                  <a href="#">About Us</a>
+                  <a href="#">Testimonials</a>
+                </div>
+                <div class="toe">
+                  <h3>Follow</h3>
+                  <div id="social">
+                    <a id="fb" href="#" title="Facebook"></a>
+                    <a id="twitter" href="#" title="Twitter"></a>
+                  </div>
 
+                </div>
+              </div>
+            </div>
 
       </div>
     );

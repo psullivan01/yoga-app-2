@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import WorkoutCard from './WorkoutCard.js';
+import './WorkoutScreen.css';
 import WorkoutListItem from './WorkoutListItem';
 const quad = require('./img/quadriceps.jpg');
 const ham = require('./img/hamstrings.jpg');
@@ -117,7 +118,7 @@ class WorkoutScreen extends Component {
 		})
 
 		var workoutTable = this.state.workoutMuscles.map((muscle, index)=>{
-			return (			
+			return (
 				<div>
 					<table>
 						<thead>
