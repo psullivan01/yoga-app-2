@@ -52,29 +52,6 @@ class App extends Component {
           </div>
         </div>
 
-        <div id="footerTest">
-            <div class="footerWrap">
-                <div class="toe">
-                  <h3>Support</h3>
-                  <a href="#">FAQs</a>
-                  <a href="#">Contact Us</a>
-                  <a href="#">Privacy Policy</a>
-                </div>
-                <div class="toe">
-                  <h3>About</h3>
-                  <a href="#">About Us</a>
-                  <a href="#">Testimonials</a>
-                </div>
-                <div class="toe">
-                  <h3>Follow</h3>
-                  <div id="social">
-                    <a id="fb" href="#" title="Facebook"></a>
-                    <a id="twitter" href="#" title="Twitter"></a>
-                  </div>
-
-                </div>
-              </div>
-            </div>
 
       </div>
     );

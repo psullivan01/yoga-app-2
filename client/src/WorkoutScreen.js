@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Route, withRouter } from 'react-router';
 import WorkoutCard from './WorkoutCard.js';
 import './WorkoutScreen.css';
-import WorkoutListItem from './WorkoutListItem';
+import WorkoutListItem from './WorkoutListItem.js';
+import Workout from './Workout.js'
 const quad = require('./img/quadriceps.jpg');
 const ham = require('./img/hamstrings.jpg');
 const hip = require('./img/hips.jpg');
@@ -9,6 +11,7 @@ const lBack = require('./img/lower_back.jpg');
 const uBack = require('./img/upper_back.jpg');
 const shoulder = require('./img/shoulders.jpg');
 
+<Route path="/launch_workout" component={Workout}/>
 
 function addCards() {
 	var muscleImages = [quad, ham, hip, lBack, uBack, shoulder]
@@ -29,8 +32,12 @@ function addCards() {
 
 class WorkoutScreen extends Component {
 
-	constructor() {
-		super();
+	state = {
+		
+	}
+
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			time: 1,
@@ -38,8 +45,14 @@ class WorkoutScreen extends Component {
 			workoutMuscles: [],
 			workoutMuscleLookups: [],
 			poseRand: [],
-			workoutPoses: []
+			workoutPoses: [],
+			poseTime: "1:00",
+			tableShown: false
 		};
+	}
+
+	navigate() {
+		this.props.router.push('/launch_workout')
 	}
 
 	pickCard(cardIndex) {
@@ -63,11 +76,26 @@ class WorkoutScreen extends Component {
 		})
 	}
 
-	changeTime(event) {
+	changeTime = (event) => {
 		var time = parseInt(event.target.value)
 		this.setState({
 			time: time
 		})
+	}
+
+	getPoseDuration(timeMintues, poseCount) {
+		var timeSeconds = timeMintues * 60
+		var timePose = timeSeconds / poseCount
+		var seconds = timePose % 60
+
+		console.log(seconds)
+
+		if (seconds < 10) {
+			seconds = '0' + seconds
+		}
+
+		var timeMinutesSeconds = Math.floor(timePose / 60) + ":" + seconds
+		return timeMinutesSeconds
 	}
 
 	generateWorkout(event) {
@@ -97,11 +125,16 @@ class WorkoutScreen extends Component {
 			}
 		}
 
+		var timeMinutes = this.state.time
+		var poseCount = selectedMuscles.length
+		var poseTimer = this.getPoseDuration(timeMinutes, poseCount)
+
 		this.setState({
 			workoutMuscles: selectedMuscles,
 			workoutMuscleLookups: selectedMuscleLookup,
 			poseRand: poseRand,
-			workoutPoses: selectedPoses
+			workoutPoses: selectedPoses,
+			poseTime: poseTimer
 		})
 	}
 
@@ -118,24 +151,36 @@ class WorkoutScreen extends Component {
 		})
 
 		var workoutTable = this.state.workoutMuscles.map((muscle, index)=>{
-			return (
-				<div>
-					<table>
-						<thead>
-							<tr>
-								<th>Duration</th>
-								<th>Muscle Group</th>
-								<th>Pose</th>
-							</tr>
-						</thead>
-						<WorkoutListItem key={index}
-										muscle={muscle}
-										time={this.state.time}
-										pose={this.state.workoutPoses[index]}/>
-					</table>
-				</div>
-			)
+
+			return <WorkoutListItem key={index}
+									muscle={muscle}
+									time={this.state.poseTime}
+									pose={this.state.workoutPoses[index]}/>
+
 		})
+
+		var finalTable =
+		<div>
+			<br/>
+			<table>
+				<thead> 
+					<tr> 
+						<th>Duration</th> 
+						<th>Muscle Group</th> 
+						<th>Pose</th> 
+					</tr> 
+				</thead>
+					{workoutTable}
+			</table>
+			<br/>
+			<button type="submit" className="btn btn-primary" id="Begin" onClick={this.navigate.bind(this)}>
+				<a className="btn btn-primary" href="/launch_workout">Begin Workout</a>
+			</button>
+		</div>
+
+		if (this.state.workoutPoses.length === 0) {
+			finalTable = ""
+		}
 
 		return (
 			    <div className="container" id="topDiv">
@@ -174,7 +219,7 @@ class WorkoutScreen extends Component {
 			            <div id="result">
 
 			              <table id="summaryTable" className="tableStyle table table-striped">
-			              	{workoutTable}
+			              	{finalTable}
 			              </table>
 			            </div>
 			          </div>
@@ -184,4 +229,6 @@ class WorkoutScreen extends Component {
 	}
 }
 
+
 export default WorkoutScreen;
+
