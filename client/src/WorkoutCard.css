@@ -43,6 +43,11 @@ text-align: center;
   padding-bottom: 5px;
 }
 
-.tableStyle {
+.isPicked button {
+  background-color: red;
+  border-color: red;
+}
 
+.isPicked:selected button {
+  outline-color: red;
 }
