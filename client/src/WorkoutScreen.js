@@ -47,7 +47,8 @@ class WorkoutScreen extends Component {
 			poseRand: [],
 			workoutPoses: [],
 			poseTime: "1:00",
-			tableShown: false
+			tableShown: false,
+			workoutShown: false
 		};
 	}
 
