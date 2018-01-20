@@ -36,6 +36,11 @@ header.masthead {
     opacity: 0.3; }
   header.masthead h1 {
     font-size: 2rem; }
+    
+    header.masthead h3 {
+      font-family: 'Helvetica Neue';
+      font-size: 2rem; }
+
   @media (min-width: 768px) {
     header.masthead {
       padding-top: 1rem;

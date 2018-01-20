@@ -13,7 +13,7 @@ class HomePage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xl-9 mx-auto">
-              <img src="https://secure2.convio.net/seva/images/content/pagebuilder/longviewyogastudio.png" width="400" height="300" alt=""/>
+              <img src="https://s3.amazonaws.com/coursestorm/live/media/e8963227db7911e7987212b5ca500252" width="400" height="300" alt="No Image"/>
               <h3 className="mb-5">DROP AND GIVE ME ZEN!</h3>
             </div>
           </div>
