@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router';
 import WorkoutCard from './WorkoutCard.js';
+import './WorkoutScreen.css';
 import WorkoutListItem from './WorkoutListItem.js';
 import Workout from './Workout.js'
 const quad = require('./img/quadriceps.jpg');
@@ -150,10 +151,12 @@ class WorkoutScreen extends Component {
 		})
 
 		var workoutTable = this.state.workoutMuscles.map((muscle, index)=>{
+
 			return <WorkoutListItem key={index}
 									muscle={muscle}
 									time={this.state.poseTime}
 									pose={this.state.workoutPoses[index]}/>
+
 		})
 
 		var finalTable =
@@ -226,4 +229,6 @@ class WorkoutScreen extends Component {
 	}
 }
 
-export default withRouter(WorkoutScreen);
+
+export default WorkoutScreen;
+

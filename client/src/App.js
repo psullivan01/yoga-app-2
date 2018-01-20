@@ -12,13 +12,13 @@ class App extends Component {
     return (
 
       <div>
-      <nav className="navbar navbar-light bg-light static-top">
+      <nav className="navbar  static-top">
           <div className="container">
             <nav className="navbar navbar-light bg-faded">
-              <a className="navbar-brand" href="#">
+              <a className="navbar-brand" href="/HomePage">
                 <img src="https://seeklogo.com/images/O/OM_YOGA-logo-6F30131211-seeklogo.com.png" width="50" height="50" alt=""/>
               </a>
-              <a className="navbar-brand" href="#">Yoga</a>
+              <a className="navbar-brand" href="/HomePage">Yoga</a>
             </nav>
 
             <ul className="nav justify-content-end">
@@ -45,6 +45,12 @@ class App extends Component {
         <Route path="/workout" component={WorkoutScreen}/>
         <Route path="/login" component={Login}/>
         <Route path="/HomePage" component={HomePage}/>
+
+        <div class="footerTest">
+          <div id="motto">
+            "Inhale the future. Exhale the past." - Unknown
+          </div>
+        </div>
 
 
       </div>

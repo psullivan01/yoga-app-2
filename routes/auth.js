@@ -3,11 +3,13 @@ var router = express.Router();
 var passport = require('passport');
 
 router.get('/auth/google',
-  passport.authenticate('google', { scope: 'https://www.google.com/m8/feeds' });
+  passport.authenticate('google', { scope: ['openid', 'profile', 'email']}), function(req, res) {
+    console.log("i'm hereh!!")
+  });
 
 
-  app.get('/auth/google/callback',
-    passport.authenticate('google', { failureRedirect: '/login' }),
+router.get('/auth/google/callback',
+    passport.authenticate('google', { successRedirect: '/HomePage', failureRedirect: '/login' }),
     function(req, res) {
       res.redirect('/');
     });

@@ -7,6 +7,7 @@ class WorkoutCard extends Component {
 
 		var muscleClass = "MuscleCard"
 		var buttonText = "Add"
+		//var btnstyling = ['btn','btn-success','btn-sm']
 
 		if (this.props.isPicked) {
 			muscleClass += " isPicked"
