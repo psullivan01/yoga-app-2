@@ -27,19 +27,24 @@ app.use(passport.session());
 
 //Set up passport
 passport.use(new GoogleStrategy({
-    consumerKey: GOOGLE_CONSUMER_KEY,
-    consumerSecret: GOOGLE_CONSUMER_SECRET,
-    callbackURL: "http://www.example.com/auth/google/callback"
+
+  //ADD CONSUMER GOOGLE KEY HERE - Dont push to git, seperate in another keys file
+
+      consumerKey: "84320499637-1pc5pbkgqnr0ensft35akk9ni6i82307.apps.googleusercontent.com",
+      consumerSecret: "FOvYHGrYsXIL807zRqVLYK1-",
+      callbackURL: "http://locahost:3000/auth/google/callback"
+
   },
   function(token, tokenSecret, profile, done) {
     //Reach into the users table and find this user if the user isnt there, create the user.. Then, call return done err user.
-      // User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      //   return done(err, user);
-      // });
+      User.findOrCreate({ googleId: profile.id }, function (err, user) {
+        return done(err, user);
+      });
   }
 ));
 
 //Set up Routes
+console.log(authRouter);
 app.use(authRouter);
 
 // catch 404 and forward to error handler
