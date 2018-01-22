@@ -3,6 +3,7 @@ import MyWorkouts from './MyWorkouts.js';
 import WorkoutScreen from './WorkoutScreen.js';
 import Login from './Login.js';
 import HomePage from './HomePage.js'
+import DashboardLogin from './DashboardLogin.js'
 import './App.css';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router';
@@ -30,6 +31,9 @@ class App extends Component {
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/my_workouts">My Workouts</a>
+              </li>
+              <li className="nav-item">
+                <a className="nav-link" href="/DashboardLogin">Dashboard Login</a>
               </li>
               <li className="nav-item">
                 <a className="btn btn-primary" href="/login">Log In</a>
