@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import WorkoutListItem from './WorkoutListItem.js';
-
+import './WorkoutTable.css';
 class WorkoutTable extends Component {
 
 	constructor() {
