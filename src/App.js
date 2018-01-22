@@ -17,7 +17,7 @@ class App extends Component {
           <div className="container">
             <nav className="navbar navbar-light bg-faded">
               <a className="navbar-brand" href="/HomePage">
-                <img src="https://seeklogo.com/images/O/OM_YOGA-logo-6F30131211-seeklogo.com.png" width="50" height="50" alt=""/>
+                <img src="https://www.logoai.com/uploads/icon/2017/06/29/14987185028816686.svg" width="50" height="50" alt=""/>
               </a>
               <a className="navbar-brand" href="/HomePage">Yoga</a>
             </nav>
