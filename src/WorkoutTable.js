@@ -19,12 +19,12 @@ class WorkoutTable extends Component {
 
 		return (
 			<div>
-				<table>
+				<table class="table table-fixed">
 					<thead>
-						<tr>
-							<th>Duration</th>
-							<th>Muscle Group</th>
-							<th>Pose</th>
+						<tr class="tableHeader">
+							<th class="col-xs-3">Duration</th>
+							<th class="col-xs-3">Muscle Group</th>
+							<th class="col-xs-6">Pose</th>
 						</tr>
 					</thead>
 					{poseData}

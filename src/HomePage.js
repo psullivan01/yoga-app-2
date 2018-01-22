@@ -14,13 +14,14 @@ class HomePage extends Component {
           <div className="row">
             <div className="col-xl-9 mx-auto">
               <img src="https://s3.amazonaws.com/coursestorm/live/media/e8963227db7911e7987212b5ca500252" width="400" height="300" alt="No Image"/>
+              <div ><button class="btn btn-primary menuButton" href="/workout" type="submit">Workout Now!</button></div>
               <h3 className="mb-5">DROP AND GIVE ME ZEN!</h3>
             </div>
           </div>
         </div>
       </header>
 
-      <section className="features-icons bg-light text-center">
+      <section className="features-icons text-center">
             <div className="container">
               <div className="row">
                 <div className="col-lg-4">
@@ -41,7 +42,7 @@ class HomePage extends Component {
                   </div>
                 </div>
                 <div className="col-lg-4">
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbi-nwbZOPSTjDdiobCkfzhbdz-E81sKfC-79jB8nga2-lTxMT" alt="Smiley face" width="100" height="100"/>
+                <img src="https://image.flaticon.com/icons/png/512/215/215703.png" alt="Smiley face" width="100" height="100"/>
                   <div className="features-icons-item mx-auto mb-0 mb-lg-3">
                       <i className="icon-check m-auto text-primary"></i>
                     <h3>Good for Cardio</h3>

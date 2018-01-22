@@ -29,36 +29,14 @@
 	  font-size: 16px;
 	  height: auto;
 	  padding: 10px;
-		@include box-sizing(border-box);
+
 	}
 
-	input[type="text"] {
-	  margin-bottom: -1px;
-     border-top: 1px solid transparent;
-     border-right: 1px solid transparent;
-     border-left: 1px solid transparent;
-     box-shadow: none;
-	  border-radius: 3px 3px 0px 0px;
 
-		&:focus {
-      box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
-		}
-	}
 
-	input[type="password"] {
-    z-index: 2;
-	  margin-bottom: 20px;
-    border-top: none;
-    border-bottom: 1px solid transparent;
-    border-right: 1px solid transparent;
-    border-left: 1px solid transparent;
-    border-radius: 0px 0px 3px 3px;
-    box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	
+	
 
-		&:focus {
-      box-shadow: inset 0 1px 1px rgba(0,0,0,0.075), 0px 1px 0px 0px rgba(255,255,255,0.5);
-		}
-	}
 
   .btn {
     color: red;
