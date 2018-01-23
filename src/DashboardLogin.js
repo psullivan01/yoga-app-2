@@ -43,7 +43,7 @@ class DashboardLogin extends Component {
 
   handleSuccess(response) {
     console.log("handleSuccess")
-    this.props.history.push('/HomePage');
+    this.props.history.push('/');
     return response;
   }
 
@@ -77,17 +77,17 @@ class DashboardLogin extends Component {
         <div className="login-dashboard-wrapper">
           <div className="login-white-line"></div>
           <div className="google-login-div">
-            <GoogleLogin className="google-login-style"
+            <GoogleLogin className="btn btn-default btn-login btn-google"
               clientId={this.state.clientId}
               onSuccess={this.handleSuccess}
               onFailure={this.handleError}
               buttonText=""
             >
-              <div>Sign In With Google</div>
+            <i class="fa fa-google-plus-official fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+    Login with Google
             </GoogleLogin>
           </div>
         </div>
-
         <div className="login-bottom-text">Not the page you wanted? <a href="#/">Go back.</a></div>
       </div>
     );
