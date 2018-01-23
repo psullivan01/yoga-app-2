@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
+import {withRouter} from "react-router-dom";
 import './DashboardLogin.css';
 import GoogleLogin from 'react-google-login';
 
@@ -15,17 +16,19 @@ class DashboardLogin extends Component {
       token: '',
       name: '',
       tokenExpiresAt: null,
-      clientId: process.env.REACT_APP_AUTH_CLIENT_ID,
+      clientId: 	
+      '84320499637-1pc5pbkgqnr0ensft35akk9ni6i82307.apps.googleusercontent.com',
     };
     this.responseGoogle            = this.responseGoogle.bind(this);
     this.failureResponseGoogle     = this.failureResponseGoogle.bind(this);
-    this.submitAuthRequestToServer = this.submitAuthRequestToServer.bind(this);
     this.checkResponseStatus       = this.checkResponseStatus.bind(this);
     this.parseJSON                 = this.parseJSON.bind(this);
     this.handleError               = this.handleError.bind(this);
+    this.handleSuccess               = this.handleSuccess.bind(this);
   }
 
   responseGoogle(response){
+    console.log("responseGoogle")
     this.setState({
       token: response.tokenId,
       name: response.profileObj.name,
@@ -34,15 +37,18 @@ class DashboardLogin extends Component {
   }
 
   failureResponseGoogle(response){
+    console.log("failureResponseGoogle")
     this.props.notifications.add('danger', `Sorry, there was a problem. \n\nDetails:\n ${response}`);
   }
 
   handleSuccess(response) {
-    this.props.history.push('dashboard/home');
+    console.log("handleSuccess")
+    this.props.history.push('/HomePage');
     return response;
   }
 
   handleError(error) {
+    console.log("handleError")
     const response = error.response;
     const _this = this;
     response.json()
@@ -73,8 +79,8 @@ class DashboardLogin extends Component {
           <div className="google-login-div">
             <GoogleLogin className="google-login-style"
               clientId={this.state.clientId}
-              onSuccess={this.responseGoogle}
-              onFailure={this.failureResponseGoogle}
+              onSuccess={this.handleSuccess}
+              onFailure={this.handleError}
               buttonText=""
             >
               <div>Sign In With Google</div>
@@ -88,4 +94,4 @@ class DashboardLogin extends Component {
   }
 }
 
-export default DashboardLogin;
+export default withRouter(DashboardLogin);

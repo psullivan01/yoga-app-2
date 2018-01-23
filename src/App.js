@@ -24,7 +24,7 @@ class App extends Component {
             
             <ul className="nav justify-content-end">
               <li className="nav-item">
-                <a className="nav-link active" href="/HomePage">Home</a>
+                <a className="nav-link active" href="/">Home</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/workout">Workout</a>
@@ -47,7 +47,8 @@ class App extends Component {
         <Route path="/my_workouts" component={MyWorkouts}/>
         <Route path="/workout" component={WorkoutScreen}/>
         <Route path="/login" component={Login}/>
-        <Route path="/HomePage" component={HomePage}/>
+        <Route exact path="/" component={HomePage}/>
+        <Route path="/DashboardLogin" component={DashboardLogin}/>
 
         <div class="footerTest">
           <div id="motto">
