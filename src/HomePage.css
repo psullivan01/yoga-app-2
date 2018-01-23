@@ -63,12 +63,19 @@ header.masthead {
   margin-bottom: 20px;
   width: 150px;
   height: 60px;
-  background: rgba(0,123,255, 0.5) /* Green background with 30% opacity */
+  background: rgba(236,80,51, 0.5) /* Green background with 30% opacity */
+}
+
+.menuButton:hover {
+  background: rgba(236,80,51, 0.8) /* Green background with 30% opacity */
 }
 
 .yogaSlogan {
   font-family: 'Lato';
-  font-size: rem;
+  font-size: 4rem;
   text-align: center;
 
+}
+.menuButton:focus {
+  box-shadow: none;
 }
