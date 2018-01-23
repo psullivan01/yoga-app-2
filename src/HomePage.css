@@ -50,8 +50,8 @@ header.masthead {
 
 
 .features-icons {
-  padding-top: 5rem;
-  padding-bottom: 2rem; }
+  padding-top: 3rem;
+  padding-bottom: 4rem; }
 
 
 .nav-link {
@@ -64,4 +64,11 @@ header.masthead {
   width: 150px;
   height: 60px;
   background: rgba(0,123,255, 0.5) /* Green background with 30% opacity */
+}
+
+.yogaSlogan {
+  font-family: 'Lato';
+  font-size: rem;
+  text-align: center;
+
 }
