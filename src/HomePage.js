@@ -15,7 +15,7 @@ class HomePage extends Component {
           <div className="row">
             <div className="col-xl-9 mx-auto">
               <img src={image} width="850" height="200" alt="No Image"/>
-              <div ><button class="btn btn-primary menuButton" href="/workout" type="submit">Workout Now!</button></div>
+              <div><button class="btn btn-primary menuButton" href="/workout" type="submit">Workout Now!</button></div>
             </div>
           </div>
         </div>

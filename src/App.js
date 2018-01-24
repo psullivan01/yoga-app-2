@@ -34,10 +34,7 @@ class App extends Component {
                 <a className="nav-link" href="/my_workouts">My Workouts</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/DashboardLogin">Dashboard Login</a>
-              </li>
-              <li className="nav-item">
-                <a className="btn btn-primary loginButton" href="/login">Log In</a>
+                <a className="btn btn-primary loginButton" href="/DashboardLogin">Log In</a>
               </li>
             </ul>
 
