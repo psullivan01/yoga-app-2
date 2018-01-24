@@ -27,6 +27,9 @@
 padding-top: 0px;
 }
 
+.navbar {
+  padding: 0rem 0rem;
+}
 
 
 header.masthead {
@@ -36,9 +39,20 @@ header.masthead {
 
 
 .nav-link {
-  color: #0d98dd;
+  color: #f75d40;
 }
 
+.nav-link:hover {
+  color: #808080;
+}
+
+.loginButton  {
+  background: rgba(236,80,51, 0.8) /* Green background with 30% opacity */
+}
+
+.loginButton:hover {
+  background: rgba(236,80,51, 0.5) /* Green background with 30% opacity */
+}
 
 
 #motto{
@@ -47,12 +61,12 @@ header.masthead {
   width: 100%;
   padding: 10px;
   color: #fff;
-  font: 16pt Georgia;
+  font: 16pt AvenirLTStd-Book;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 #footerTest{
-  background: #2f7ccf;
+  background: #f75d40;
   padding: 10px 0 15px 200px;
   width:100%;
 }

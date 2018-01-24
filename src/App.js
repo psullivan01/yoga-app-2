@@ -3,9 +3,11 @@ import MyWorkouts from './MyWorkouts.js';
 import WorkoutScreen from './WorkoutScreen.js';
 import Login from './Login.js';
 import HomePage from './HomePage.js'
+import DashboardLogin from './DashboardLogin.js'
 import './App.css';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router';
+
 
 class App extends Component {
   render() {
@@ -15,15 +17,15 @@ class App extends Component {
       <nav className="navbar  static-top">
           <div className="container">
             <nav className="navbar navbar-light bg-faded">
-              <a className="navbar-brand" href="/HomePage">
-                <img src="https://seeklogo.com/images/O/OM_YOGA-logo-6F30131211-seeklogo.com.png" width="50" height="50" alt=""/>
+              <a className="navbar-brand" href="/">
+                <img src="https://www.logoai.com/uploads/icon/2017/06/29/14987185028816686.svg" width="90" height="47" alt=""/>
               </a>
-              <a className="navbar-brand" href="/HomePage">Yoga</a>
+           
             </nav>
             
             <ul className="nav justify-content-end">
               <li className="nav-item">
-                <a className="nav-link active" href="/HomePage">Home</a>
+                <a className="nav-link active" href="/">Home</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/workout">Workout</a>
@@ -32,7 +34,10 @@ class App extends Component {
                 <a className="nav-link" href="/my_workouts">My Workouts</a>
               </li>
               <li className="nav-item">
-                <a className="btn btn-primary" href="/login">Log In</a>
+                <a className="nav-link" href="/DashboardLogin">Dashboard Login</a>
+              </li>
+              <li className="nav-item">
+                <a className="btn btn-primary loginButton" href="/login">Log In</a>
               </li>
             </ul>
 
@@ -43,7 +48,8 @@ class App extends Component {
         <Route path="/my_workouts" component={MyWorkouts}/>
         <Route path="/workout" component={WorkoutScreen}/>
         <Route path="/login" component={Login}/>
-        <Route path="/HomePage" component={HomePage}/>
+        <Route exact path="/" component={HomePage}/>
+        <Route path="/DashboardLogin" component={DashboardLogin}/>
 
         <div class="footerTest">
           <div id="motto">

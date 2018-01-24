@@ -1,0 +1,56 @@
+.container {
+    margin-top: 50px;
+    text-align: center;
+  }
+  
+  .title {
+    margin-bottom: 40px;
+  }
+  
+  .btn-login {
+    display: block;
+    margin: 15px auto;
+    padding: 15px;
+    padding-left: 20px;
+    width: 250px;
+    text-align: left;
+    color: white;
+    border: none;
+    outline: none;
+  }
+  
+  .btn-login:hover, 
+  .btn-login:focus, 
+  .btn-login:active {
+    color: white;
+  }
+  
+  .btn-facebook {
+    background-color: #3B5998;
+  }
+  
+  .btn-facebook:hover,
+  .btn-facebook:focus,
+  .btn-facebook:active {
+    background-color: #3B5998;
+  }
+  
+  .btn-twitter {
+    background-color: #1DA1F2;
+  }
+  
+  .btn-twitter:hover,
+  .btn-twitter:focus,
+  .btn-twitter:active {
+    background-color: #1DA1F2;  
+  }
+  
+  .btn-google {
+    background-color: #DB4437;
+  }
+  
+  .btn-google:hover,
+  .btn-google:focus,
+  .btn-google:active {
+    background-color: #DB4437;  
+  }
