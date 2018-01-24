@@ -7,3 +7,20 @@
   
   font-size: 20px;
 }
+
+.btn {
+  border: none;
+}
+
+.btn:hover {
+  border:none;
+}
+
+.table-fixed thead tr th {
+  background-color: #f39c12;
+  border-color: #e67e22;
+}
+.table-fixed {
+  width: 100%;
+  background-color: #f3f3f3;
+}
