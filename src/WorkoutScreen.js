@@ -1,17 +1,36 @@
 import React, { Component } from 'react';
-import { Route, withRouter } from 'react-router';
 import WorkoutCard from './WorkoutCard.js';
 import './WorkoutScreen.css';
 import WorkoutListItem from './WorkoutListItem.js';
 import Workout from './Workout.js'
-const quad = require('./img/quadriceps.jpg');
-const ham = require('./img/hamstrings.jpg');
-const hip = require('./img/hips.jpg');
-const lBack = require('./img/lower_back.jpg');
-const uBack = require('./img/upper_back.jpg');
-const shoulder = require('./img/shoulders.jpg');
 
-<Route path="/launch_workout" component={Workout}/>
+var	quad = require('./img/quadriceps.jpg')
+var	ham = require('./img/hamstrings.jpg')
+var	hip = require('./img/hips.jpg')
+var	lBack = require('./img/lower_back.jpg')
+var	uBack = require('./img/upper_back.jpg')
+var	shoulder = require('./img/shoulders.jpg')
+var	saddle = require('./img/saddle.png')
+var	lizard = require('./img/lizard.jpg')
+var	half_saddle = require('./img/half_saddle.jpg')
+var	twisted_lizard = require('./img/twisted_lizard.jpg')
+var	seated_forward_fold = require('./img/seated_forward_fold.jpg')
+var	standing_straddle = require('./img/standing_straddle.jpg')
+var	half_front_split = require('./img/half_front_split.jpg')
+var	dragon = require('./img/dragon.jpg')
+var	pigeon = require('./img/pigeon.jpg')
+var	seated_cross_shin = require('./img/seated_cross_shin.jpg')
+var	bound_angle = require('./img/bound_angle.jpg')
+var	single_leg_forward_fold = require('./img/single_leg_forward_fold.png')
+var	puppy_dog = require('./img/puppy_dog.jpg')
+var	happy_baby = require('./img/happy_baby.jpg')
+var	seal = require('./img/seal.jpg')
+var	saddle_eagle = require('./img/saddle_eagle.jpg')
+var	cow_face = require('./img/cow_face.jpg')
+var	standing_forward_fold = require('./img/standing_forward_fold.jpg')
+var	childs_pose_shoulders = require('./img/childs_pose_shoulders.jpg')
+var	shoulder_opener = require('./img/shoulder_opener.jpg')
+var	thread_the_needle = require('./img/thread_the_needle.jpg')
 
 function addCards() {
 	var muscleImages = [quad, ham, hip, lBack, uBack, shoulder]
@@ -32,10 +51,6 @@ function addCards() {
 
 class WorkoutScreen extends Component {
 
-	state = {
-		
-	}
-
 	constructor(props) {
 		super(props);
 
@@ -46,14 +61,12 @@ class WorkoutScreen extends Component {
 			workoutMuscleLookups: [],
 			poseRand: [],
 			workoutPoses: [],
+			posePictures: [],
+			poseBilateral: [],
 			poseTime: "1:00",
-			tableShown: false,
+			timePose: 0,
 			workoutShown: false
 		};
-	}
-
-	navigate() {
-		this.props.router.push('/launch_workout')
 	}
 
 	pickCard(cardIndex) {
@@ -84,6 +97,11 @@ class WorkoutScreen extends Component {
 		})
 	}
 
+	getTimePose(timeMinutes, poseCount) {
+		var timePose = (timeMinutes * 60) / poseCount
+		return timePose
+	}
+
 	getPoseDuration(timeMintues, poseCount) {
 		var timeSeconds = timeMintues * 60
 		var timePose = timeSeconds / poseCount
@@ -104,38 +122,85 @@ class WorkoutScreen extends Component {
 		var selectedMuscles = []
 		var selectedMuscleLookup = []
 		var selectedPoses = []
+		var selectedPoseLookup = []
+		var selectedPoseImage = []
+		var selectedPoseBilateral = []
+		var selectedPose
 		var poseRand = []
 		var poses = {
-		  quads : ["Saddle", "Lizard", "Half Saddle", "Twisted Lizard"],
-		  hams : ["Seated Forward Fold", "Standing Straddle", "Half Front Split", "Dragon"],
-		  hips : ["Pigeon", "Seated Cross Shin", "Bound Angle"],
-		  lBack : ["Single Leg Forward Fold", "Puppy Dog", "Happy Baby", "Seal"],
-		  uBack : ["Saddle Eagle", "Cow Face", "Standing Forward Fold with Interlacing Fingers"],
-		  shoulders : ["Child's Pose with Shoulders", "Shoulder Opener", "Thread the Needle"],
-		};
+			quads: [
+				['Saddle', saddle, false],
+				['Lizard', lizard, true],
+				['Half Saddle', half_saddle, true],
+				['Twisted Lizard', twisted_lizard, true]
+			],
+			hams: [
+				['Seated Forward Fold', seated_forward_fold, false],
+				['Standing Straddle', standing_straddle, false],
+				['Half Front Split', half_front_split, true],
+				['Dragon', dragon, true]
+			],
+			hips: [
+				['Pigeon', pigeon, true],
+				['Seated Cross Shin', seated_cross_shin, true],
+				['Bound Angle', bound_angle, false],
+			],
+			lBack: [
+				['Single Leg Forward Fold', single_leg_forward_fold, true],
+				['Puppy Dog', puppy_dog, false],
+				['Happy Baby', happy_baby, false],
+				['Seal', seal, false]
+			],
+			uBack: [
+				['Saddle Eagle', saddle_eagle, true],
+				['Cow Face', cow_face, true],
+				['Standing Forward Fold with Interlacing Fingers', standing_forward_fold, false]
+			],
+			shoulders: [
+				["Child's Pose with Shoulders", childs_pose_shoulders, false],
+				['Shoulder Opener', shoulder_opener, true],
+				['Thread the Needle', thread_the_needle, true]
+			]
+		}
+
 
 		for (var x=0; x<this.state.muscles.length; x++) {
 			if (this.state.muscles[x].isPicked) {
-				var rand = Math.floor(Math.random() * poses[this.state.muscles[x].lookup].length)
 				var lookup = this.state.muscles[x].lookup
-
+				var rand = Math.floor(Math.random() * poses[lookup].length)
+				
 				selectedMuscles.push(this.state.muscles[x].title)
 				selectedMuscleLookup.push(lookup)
 				poseRand.push(rand)
-				selectedPoses.push(poses[lookup][rand])
+
+				selectedPoses.push(poses[lookup][rand][0])
+				selectedPoseImage.push(poses[lookup][rand][1])
+				selectedPoseBilateral.push(poses[lookup][rand][2])
 			}
 		}
 
 		var timeMinutes = this.state.time
 		var poseCount = selectedMuscles.length
 		var poseTimer = this.getPoseDuration(timeMinutes, poseCount)
+		var timePose = this.getTimePose(timeMinutes, poseCount)
 
 		this.setState({
 			workoutMuscles: selectedMuscles,
 			workoutMuscleLookups: selectedMuscleLookup,
 			poseRand: poseRand,
 			workoutPoses: selectedPoses,
-			poseTime: poseTimer
+			posePictures: selectedPoseImage,
+			poseBilateral: selectedPoseBilateral,
+			poseTime: poseTimer,
+			timePose: timePose
+		})
+	}
+
+	launchWorkout(event) {
+		event.preventDefault()
+
+		this.setState({
+			workoutShown: true
 		})
 	}
 
@@ -171,61 +236,81 @@ class WorkoutScreen extends Component {
 						<th>Pose</th> 
 					</tr> 
 				</thead>
-					{workoutTable}
+				{workoutTable}
 			</table>
 			<br/>
-			<button type="submit" className="btn btn-primary" id="Begin" onClick={this.navigate.bind(this)}>
+			<button type="submit" className="btn btn-primary" id="Begin" onClick={this.launchWorkout.bind(this)}>
 				<a className="btn btn-primary" href="/launch_workout">Begin Workout</a>
 			</button>
 		</div>
+
+		var yogaForm =
+			<form id="yoga-form">
+		        <div className="submitNav">
+		            <span className="durationText">Select Workout Duration</span>
+		            <select id="select" onChange={(e) => this.changeTime(e)}>
+		              <option>1</option>
+		              <option>2</option>
+		              <option>4</option>
+		              <option>6</option>
+		              <option>8</option>
+		              <option>10</option>
+		              <option>12</option>
+		              <option>14</option>
+		              <option>16</option>
+		              <option>18</option>
+		              <option>20</option>
+		            </select>
+		        </div>
+		        <div className="card-deck row">
+
+		        </div>
+		        <div className="submitButton">
+		            <button type="submit" className="btn btn-primary" id="submission" onClick={this.generateWorkout.bind(this)}>Generate Workout</button>
+		        </div>
+		    </form>
 
 		if (this.state.workoutPoses.length === 0) {
 			finalTable = ""
 		}
 
+		
+
+
+		if (this.state.workoutShown) {
+			workoutCards = ""
+			workoutTable = ""
+			finalTable = ""
+			yogaForm = ""
+
+			var workout = this.state.workoutPoses.map((pose, index)=>{
+
+				return <Workout key={index}
+								pose={pose}
+								time={this.state.poseTime}
+								posePicture={this.state.posePictures}/>
+			})
+		}
+
 		return (
-			    <div className="container" id="topDiv">
-			      <div className="row">
-			      	{workoutCards}
-			        <div className="col-lg-12">
-			          <form id="yoga-form">
-			            <div className="submitNav">
-			            <span className="durationText">Select Workout Duration</span>
-			            <select id="select" onChange={(e) => this.changeTime(e)}>
-			              <option>1</option>
-			              <option>2</option>
-			              <option>4</option>
-			              <option>6</option>
-			              <option>8</option>
-			              <option>10</option>
-			              <option>12</option>
-			              <option>14</option>
-			              <option>16</option>
-			              <option>18</option>
-			              <option>20</option>
-			            </select>
-			          </div>
-			            <div className="card-deck row">
-
-			            </div>
-			            <div className="submitButton">
-			            <button type="submit" className="btn btn-primary" id="submission" onClick={this.generateWorkout.bind(this)}>Generate Workout</button>
-			          </div>
-			          </form>
-
-			        </div>
-			        </div>
-			        <div className="row">
-			          <div className="col-lg-12">
-			            <div id="result">
-
-			              <table id="summaryTable" className="tableStyle table table-striped">
-			              	{finalTable}
-			              </table>
-			            </div>
-			          </div>
-			        </div>
-			      </div>
+		    <div className="container" id="topDiv">
+		    	<div className="row">
+		      		{workoutCards}
+		        	<div className="col-lg-12">
+		        		{yogaForm}
+		        	</div>
+		        </div>
+		        <div className="row">
+		        	<div className="col-lg-12">
+		        		<div id="result">
+			            	<table id="summaryTable" className="tableStyle table table-striped">
+			            		{finalTable}
+			            	</table>
+			            	{workout}
+		            	</div>
+		          	</div>
+		       	</div>
+		    </div>
 		)
 	}
 }
