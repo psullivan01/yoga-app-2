@@ -73,7 +73,14 @@ class DashboardLogin extends Component {
 
   render() {
     return (
-      <div className="login-page">
+      <div>
+      
+
+<div class="row" id="box-search">
+<div class="thumbnail text-center">
+    <img src="http://www.dreams.metroeve.com/wp-content/uploads/2016/05/Zen.jpg" alt="" class="img-responsive"/>
+    <div class="caption">
+    <div className="login-page">
         <div className="login-dashboard-wrapper">
           <div className="login-white-line"></div>
           <div className="google-login-div">
@@ -90,6 +97,10 @@ class DashboardLogin extends Component {
         </div>
         <div className="login-bottom-text">Not the page you wanted? <a href="#/">Go back.</a></div>
       </div>
+    </div>
+</div>
+</div>
+</div>
     );
   }
 }
