@@ -9,7 +9,6 @@ class Workout extends Component {
 
 	render () {
 		return (
-
 			<div className="cardStyle card col-lg-4">
 				<h4 className="card-title">{this.props.pose}</h4>
 				<h4>{this.props.time}</h4>
