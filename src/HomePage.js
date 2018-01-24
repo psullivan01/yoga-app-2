@@ -14,7 +14,7 @@ class HomePage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xl-9 mx-auto">
-              <img src={image} width="800" height="200" alt="No Image"/>
+              <img src={image} width="850" height="200" alt="No Image"/>
               <div ><button class="btn btn-primary menuButton" href="/workout" type="submit">Workout Now!</button></div>
             </div>
           </div>
@@ -54,6 +54,15 @@ class HomePage extends Component {
           </section>
 
 
+
+          <div class="row" id="box-search">
+    <div class="thumbnail text-center">
+        <img src="http://www.dreams.metroeve.com/wp-content/uploads/2016/05/Zen.jpg" alt="" class="img-responsive"/>
+        <div class="caption">
+            <h3>DROP AND GIVE ME ZEN</h3>
+        </div>
+    </div>
+</div>
 
       </div>
           );
