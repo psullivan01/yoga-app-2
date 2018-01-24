@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './HomePage.css';
-import image from './img/yogaglo1.png';
+import image from './img/yogapro.png';
 
 class HomePage extends Component {
 
@@ -14,13 +14,13 @@ class HomePage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xl-9 mx-auto">
-              <img src={image} width="850" height="200" alt="No Image"/>
+              <img src={image} width="850" height="300" alt="No Image"/>
               <div><button class="btn btn-primary menuButton" href="/workout" type="submit">Workout Now!</button></div>
             </div>
           </div>
         </div>
       </header>
-      {/* <h3 className="yogaSlogan">DROP AND GIVE ME ZEN!</h3> */}
+      <h3 className="yogaBenifits">Benifits From Yoga</h3>
       <section className="features-icons text-center">
             <div className="container">
               <div className="row">
@@ -59,7 +59,7 @@ class HomePage extends Component {
     <div class="thumbnail text-center">
         <img src="http://www.dreams.metroeve.com/wp-content/uploads/2016/05/Zen.jpg" alt="" class="img-responsive"/>
         <div class="caption">
-            <h3>DROP AND GIVE ME ZEN</h3>
+            <p>DROP AND GIVE ME ZEN</p>
         </div>
     </div>
 </div>

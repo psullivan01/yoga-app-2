@@ -28,12 +28,9 @@ class DashboardLogin extends Component {
   }
 
   responseGoogle(response){
-    console.log("responseGoogle")
-    this.setState({
-      token: response.tokenId,
-      name: response.profileObj.name,
-      tokenExpiresAt: response.tokenObj.expires_at,
-    });
+    console.log(response)
+    
+   
   }
 
   failureResponseGoogle(response){
@@ -42,7 +39,11 @@ class DashboardLogin extends Component {
   }
 
   handleSuccess(response) {
-    console.log("handleSuccess")
+    console.log(response)
+    this.setState({
+      token: response.tokenId,
+      name: response.profileObj.name,
+      tokenExpiresAt: response.tokenObj.expires_at,});
     this.props.history.push('/');
     return response;
   }
