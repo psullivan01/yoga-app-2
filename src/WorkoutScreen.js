@@ -49,6 +49,54 @@ function addCards() {
 	return deck
 }
 
+
+// display Time and Display poses functions 
+
+// var links = {
+// 	saddle: 'link_1',
+// 	half_saddle: 'link_2'
+// }
+
+// var pose = ['saddle', 'half_saddle']
+
+// function displayTime(totalSeconds) {
+// 	var minutes = Math.floor(totalSeconds / 60)
+// 	var seconds = totalSeconds % 60
+
+// 	if (seconds < 10) {
+// 		seconds = '0' + seconds
+// 	}
+
+// 	var display = minutes + ":" + seconds
+// 	console.log(display)
+
+// 	totalSeconds--
+
+// 	if (totalSeconds >= 0) {
+// 		setTimeout(()=>{
+// 			displayTime(totalSeconds)
+// 		}, 1000)
+// 	}
+// }
+
+// function displayPoses(time, pose) {
+// 	var move = pose.shift()
+// 	var totalSeconds = time * 60
+
+// 	console.log(links[move])
+
+// 	displayTime(totalSeconds)
+
+// 	if (pose.length) {
+// 		setTimeout(()=>{
+// 			displayPoses(time, pose)
+// 		}, time * 60000)
+// 	}
+//  }
+
+
+// end display functions
+
 class WorkoutScreen extends Component {
 
 	constructor(props) {
@@ -65,7 +113,9 @@ class WorkoutScreen extends Component {
 			poseBilateral: [],
 			poseTime: "1:00",
 			timePose: 0,
-			workoutShown: false
+			workoutShown: false,
+			currentPose: "",
+			currentPicture: ""
 		};
 	}
 
@@ -90,12 +140,6 @@ class WorkoutScreen extends Component {
 		})
 	}
 
-	changeTime = (event) => {
-		var time = parseInt(event.target.value)
-		this.setState({
-			time: time
-		})
-	}
 
 	getTimePose(timeMinutes, poseCount) {
 		var timePose = (timeMinutes * 60) / poseCount
@@ -196,17 +240,56 @@ class WorkoutScreen extends Component {
 		})
 	}
 
+	displayTime(totalSeconds) {
+		var minutes = Math.floor(totalSeconds / 60)
+		var seconds = totalSeconds % 60
+
+		if (seconds < 10) {
+			seconds = '0' + seconds
+		}
+
+		var display = minutes + ":" + seconds
+		this.setState({poseTime: display})
+		totalSeconds--
+
+		if (totalSeconds > 0) {
+			setTimeout(()=>{
+				this.displayTime(totalSeconds)
+			}, 1000)
+		}
+	}
+
+	displayPoses(time, pose, title) {
+		var move = pose.shift()
+		var moveTitle = title.shift()
+
+		this.setState({
+			currentPicture: move,
+			currentPose: moveTitle
+		})
+
+		this.displayTime(time)
+
+		if (pose.length) {
+			setTimeout(()=>{
+				this.displayPoses(time, pose, title)
+			}, time * 1000)
+		}
+	}
+
 	launchWorkout(event) {
 		event.preventDefault()
 
 		this.setState({
 			workoutShown: true
 		})
+
+		this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
+		console.log(this.state)
 	}
 
-	render () {
 
-		console.log(this.state)
+	render () {
 
 		var workoutCards = this.state.muscles.map((muscle, index)=>{
 			return <WorkoutCard pickCard = {this.pickCard.bind(this, index)}
@@ -274,8 +357,6 @@ class WorkoutScreen extends Component {
 			finalTable = ""
 		}
 
-		
-
 
 		if (this.state.workoutShown) {
 			workoutCards = ""
@@ -283,16 +364,18 @@ class WorkoutScreen extends Component {
 			finalTable = ""
 			yogaForm = ""
 
-			var workout = this.state.workoutPoses.map((pose, index)=>{
+			var workout = <Workout key={0}
+									pose={this.state.currentPose}
+									time={this.state.poseTime}
+									posePicture={this.state.currentPicture}/>
+				
+			}
 
-				return <Workout key={index}
-								pose={pose}
-								time={this.state.poseTime}
-								posePicture={this.state.posePictures}/>
-			})
-		}
+
 
 		return (
+			
+			
 		    <div className="container" id="topDiv">
 		    	<div className="row">
 		      		{workoutCards}
@@ -303,9 +386,7 @@ class WorkoutScreen extends Component {
 		        <div className="row">
 		        	<div className="col-lg-12">
 		        		<div id="result">
-			            	<table id="summaryTable" className="tableStyle table table-striped">
-			            		{finalTable}
-			            	</table>
+			            	{finalTable}
 			            	{workout}
 		            	</div>
 		          	</div>
