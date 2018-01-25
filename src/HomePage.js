@@ -20,7 +20,7 @@ class HomePage extends Component {
           </div>
         </div>
       </header>
-      <h3 className="yogaBenifits">Benifits From Yoga</h3>
+      <h3 className="yogaBenifits">Benefits From Yoga</h3>
       <section className="features-icons text-center">
             <div className="container">
               <div className="row">
