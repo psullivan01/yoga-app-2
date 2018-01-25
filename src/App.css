@@ -47,11 +47,11 @@ header.masthead {
 }
 
 .loginButton  {
-  background: rgba(236,80,51, 0.8) /* Green background with 30% opacity */
+  background: rgba(236,80,51, 0.8) 
 }
 
 .loginButton:hover {
-  background: rgba(236,80,51, 0.5) /* Green background with 30% opacity */
+  background: rgba(236,80,51, 0.5) 
 }
 
 
@@ -61,7 +61,7 @@ header.masthead {
   width: 100%;
   padding: 10px;
   color: #fff;
-  font: 16pt Georgia;
+  font: 16pt 'Century Gothic';
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 

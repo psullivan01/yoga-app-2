@@ -96,7 +96,7 @@ class DashboardLogin extends Component {
             </GoogleLogin>
           </div>
         </div>
-        <div className="login-bottom-text">Not the page you wanted? <a href="#/">Go back.</a></div>
+        <div className="login-bottom-text">Not the page you wanted? <a href="/">Go back.</a></div>
       </div>
     </div>
 </div>
