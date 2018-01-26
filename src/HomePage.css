@@ -62,13 +62,14 @@ header.masthead {
   color: #0d98dd;
 }
 
-.menuButton  {
+.menuButton {
   margin-top: 30px;
   margin-bottom: 20px;
   width: 170px;
   height: 70px;
   background: rgba(236,80,51, 0.5); /* Green background with 30% opacity */
   font-family: 'Century Gothic';
+  padding-top: 25px;
 }
 
 .menuButton:hover {
@@ -106,7 +107,6 @@ header.masthead {
   position: absolute;
   top: 8%;
   padding-right: 1000px;
-  padding-bottom: 2000px;
   width: 100%;
   color:#ffffff;
   font-size: 70px;

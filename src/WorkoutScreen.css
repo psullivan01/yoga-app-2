@@ -17,10 +17,15 @@
 }
 
 .table-fixed thead tr th {
-  background-color: #f39c12;
-  border-color: #e67e22;
+  background-color: #f75d40;
+  border-color: #808080;
 }
 .table-fixed {
   width: 100%;
+  text-align: ;
   background-color: #f3f3f3;
+}
+
+.col-xs-3 {
+  text-align: center;
 }
