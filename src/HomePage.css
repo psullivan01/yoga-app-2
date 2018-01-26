@@ -50,31 +50,39 @@ header.masthead {
 
 
 .features-icons {
-  padding-top: 3rem;
+  padding-top: rem;
   padding-bottom: 4rem; }
 
+  .features-icons h3{
+    padding-top: 1rem;
+   }
+  
 
 .nav-link {
   color: #0d98dd;
 }
 
-.menuButton  {
+.menuButton {
   margin-top: 30px;
   margin-bottom: 20px;
-  width: 200px;
-  height: 80px;
-  background: rgba(236,80,51, 0.5) /* Green background with 30% opacity */
+  width: 170px;
+  height: 70px;
+  background: rgba(236,80,51, 0.5); /* Green background with 30% opacity */
+  font-family: 'Century Gothic';
+  padding-top: 25px;
 }
 
 .menuButton:hover {
   background: rgba(236,80,51, 0.8) /* Green background with 30% opacity */
 }
 
-.yogaSlogan {
-  font-family: 'Lato';
-  font-size: 4rem;
+.yogaBenifits {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  font-family: 'Arial';
+  font-size: 3rem;
   text-align: center;
-
+  color:#ea5034;
 }
 .menuButton:focus {
   box-shadow: none;
@@ -82,13 +90,38 @@ header.masthead {
 
 .thumbnail {
   position: relative;
+  width:100%;
 }
 
-.caption {
+.caption p{
   position: absolute;
   top: 45%;
-  left: 0;
+  padding-right: 600px;
   width: 100%;
+  color:#ffffff;
+  font-size: 70px;
+  font-family: 'Century Gothic';
+}
+
+.yogaCaption p{
+  position: absolute;
+  top: 8%;
+  padding-right: 1000px;
+  width: 100%;
+  color:#ffffff;
+  font-size: 70px;
+  font-family: 'Century Gothic';
+}
+
+.aboutYogapro p{
+  position: absolute;
+  top: 35%;
+  padding-right: 200px;
+  padding-left: 200px;
+  width: 100%;
+  color:#ffffff;
+  font-size: 30px;
+  font-family: 'Century Gothic';
 }
 
 .img-responsive {

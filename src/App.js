@@ -28,16 +28,16 @@ class App extends Component {
                 <a className="nav-link active" href="/">Home</a>
               </li>
               <li className="nav-item">
+                <a className="nav-link active" href="/about">About Us</a>
+              </li>
+              <li className="nav-item">
                 <a className="nav-link" href="/workout">Workout</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/my_workouts">My Workouts</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="/DashboardLogin">Dashboard Login</a>
-              </li>
-              <li className="nav-item">
-                <a className="btn btn-primary loginButton" href="/login">Log In</a>
+                <a className="btn btn-primary loginButton" href="/DashboardLogin">Log In</a>
               </li>
             </ul>
 
@@ -49,6 +49,7 @@ class App extends Component {
         <Route path="/workout" component={WorkoutScreen}/>
         <Route path="/login" component={Login}/>
         <Route exact path="/" component={HomePage}/>
+        <Route path="/about" component={DashboardLogin}/>
         <Route path="/DashboardLogin" component={DashboardLogin}/>
 
         <div class="footerTest">

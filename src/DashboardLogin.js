@@ -28,12 +28,9 @@ class DashboardLogin extends Component {
   }
 
   responseGoogle(response){
-    console.log("responseGoogle")
-    this.setState({
-      token: response.tokenId,
-      name: response.profileObj.name,
-      tokenExpiresAt: response.tokenObj.expires_at,
-    });
+    console.log(response)
+    
+   
   }
 
   failureResponseGoogle(response){
@@ -42,7 +39,11 @@ class DashboardLogin extends Component {
   }
 
   handleSuccess(response) {
-    console.log("handleSuccess")
+    console.log(response)
+    this.setState({
+      token: response.tokenId,
+      name: response.profileObj.name,
+      tokenExpiresAt: response.tokenObj.expires_at,});
     this.props.history.push('/');
     return response;
   }
@@ -73,7 +74,14 @@ class DashboardLogin extends Component {
 
   render() {
     return (
-      <div className="login-page">
+      <div>
+      
+
+<div class="row" id="box-search">
+<div class="thumbnail text-center">
+    <img src="https://indobubbletea.files.wordpress.com/2016/03/bigstock-white-wood-texture-background-50738852-kopie.jpg" alt="" class="img-responsive"/>
+    <div class="caption">
+    <div className="login-page">
         <div className="login-dashboard-wrapper">
           <div className="login-white-line"></div>
           <div className="google-login-div">
@@ -88,8 +96,12 @@ class DashboardLogin extends Component {
             </GoogleLogin>
           </div>
         </div>
-        <div className="login-bottom-text">Not the page you wanted? <a href="#/">Go back.</a></div>
+        <div className="login-bottom-text">Not the page you wanted? <a href="/">Go back.</a></div>
       </div>
+    </div>
+</div>
+</div>
+</div>
     );
   }
 }

@@ -310,21 +310,26 @@ class WorkoutScreen extends Component {
 
 		var finalTable =
 		<div>
+		<div>
 			<br/>
 			<table class="table table-fixed">
 				<thead> 
 					<tr> 
 						<th class="col-xs-3">Duration</th> 
 						<th class="col-xs-3">Muscle Group</th> 
-						<th class="col-xs-6">Pose</th> 
+						<th class="col-xs-3">Pose</th> 
 					</tr> 
 				</thead>
 				{workoutTable}
 			</table>
+			
 			<br/>
+			</div>
+		<div className="beginButton">
 			<button type="submit" className="btn btn-primary" id="Begin" onClick={this.launchWorkout.bind(this)}>
 				<a className="btn btn-primary" href="/launch_workout">Begin Workout</a>
 			</button>
+		</div>
 		</div>
 
 		var yogaForm =
