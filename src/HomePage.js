@@ -61,7 +61,7 @@ class HomePage extends Component {
             <p>yogapro</p>
         </div>
         <div class="aboutYogapro">
-        <p>Yogapro’s flexible workout gives users the ability to focus multiple areas of the body in your workout routine. Generating multiple workout poses from the body areas you select gives endless custom workout options. Based on the user’s selection, a random selection of positions is generated and displayed in a chart to the user. What makes our app different, is that the user can regenerate their workouts and receive different random workout yoga positions each time the button is clicked. The user can regenerate their workout as many times as they like before they begin their workout.</p>
+        <p>Yogapro’s flexible workouts gives users the ability to focus multiple areas of the body in your workout routine. Generating multiple workout poses from the body areas you select gives endless custom workout options. Based on the user’s selection, a random selection of positions is generated and displayed in a chart to the user. What makes our app different, is that the user can regenerate their workouts and receive different random workout yoga positions each time the button is clicked.</p>
         </div>
     </div>
 </div>
