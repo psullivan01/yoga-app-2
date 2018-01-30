@@ -3,6 +3,7 @@ import WorkoutCard from './WorkoutCard.js';
 import './WorkoutScreen.css';
 import WorkoutListItem from './WorkoutListItem.js';
 import Workout from './Workout.js'
+import Youtube from './Youtube.js'
 
 var	quad = require('./img/quadriceps.jpg')
 var	ham = require('./img/hamstrings.jpg')
@@ -119,6 +120,13 @@ class WorkoutScreen extends Component {
 		};
 	}
 
+	changeTime = (event) => {
+        var time = parseInt(event.target.value)
+        this.setState({
+            time: time
+        })
+	}
+	
 	pickCard(cardIndex) {
 		var cardToPick = {...this.state.muscles[cardIndex]}
 
@@ -336,6 +344,7 @@ class WorkoutScreen extends Component {
 			<form id="yoga-form">
 		        <div className="submitNav">
 		            <span className="durationText">Select Workout Duration</span>
+					<span className="workoutTime">
 		            <select id="select" onChange={(e) => this.changeTime(e)}>
 		              <option>1</option>
 		              <option>2</option>
@@ -349,6 +358,7 @@ class WorkoutScreen extends Component {
 		              <option>18</option>
 		              <option>20</option>
 		            </select>
+					</span>
 		        </div>
 		        <div className="card-deck row">
 
@@ -373,6 +383,8 @@ class WorkoutScreen extends Component {
 									pose={this.state.currentPose}
 									time={this.state.poseTime}
 									posePicture={this.state.currentPicture}/>
+
+			var youtube = <Youtube/>
 				
 			}
 
@@ -389,10 +401,11 @@ class WorkoutScreen extends Component {
 		        	</div>
 		        </div>
 		        <div className="row">
-		        	<div className="col-lg-12">
+		        	<div className="workoutScreen col-lg-12">
 		        		<div id="result">
 			            	{finalTable}
-			            	{workout}
+							{workout}
+							{Youtube}
 		            	</div>
 		          	</div>
 		       	</div>

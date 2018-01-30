@@ -1,6 +1,29 @@
+.submitNav {
+  padding-top: 50px;
+}
+
 .submitButton {
   text-align: center;
-  padding-top: 25px;
+  padding-top: 55px;
+  padding-bottom: 50px;
+}
+
+.durationText {
+  font-size: 35px;
+  font-family: 'Century Gothic';
+}
+
+#select {
+  font-size: 35px;
+}
+
+.step2Text {
+  font-size: 35px;
+  font-family: 'Century Gothic';
+}
+.workoutTime {
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 .tableStyle{

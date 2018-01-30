@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import MyWorkouts from './MyWorkouts.js';
 import WorkoutScreen from './WorkoutScreen.js';
 import Login from './Login.js';
-import HomePage from './HomePage.js'
-import DashboardLogin from './DashboardLogin.js'
+import HomePage from './HomePage.js';
+import DashboardLogin from './DashboardLogin.js';
 import './App.css';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router';

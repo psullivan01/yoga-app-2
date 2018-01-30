@@ -9,12 +9,12 @@ class Youtube extends Component {
             height: '390',
             width: '640',
             playerVars: { // https://developers.google.com/youtube/player_parameters
-              autoplay: 1
+              autoplay: 0
             }
           };
 		return (
-            <YouTube
-          videoId="2g811Eo7K8U"
+            <Youtube
+          videoId="M7lc1UVf-VE"
           opts={opts}
           onReady={this._onReady}
         />
