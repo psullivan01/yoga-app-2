@@ -368,6 +368,9 @@ class WorkoutScreen extends Component {
 		        </div>
 		    </form>
 
+		var youtube = null
+
+
 		if (this.state.workoutPoses.length === 0) {
 			finalTable = ""
 		}
@@ -378,15 +381,17 @@ class WorkoutScreen extends Component {
 			workoutTable = ""
 			finalTable = ""
 			yogaForm = ""
+			youtube = <Youtube/>
 
 			var workout = <Workout key={0}
 									pose={this.state.currentPose}
 									time={this.state.poseTime}
 									posePicture={this.state.currentPicture}/>
 
-			var youtube = <Youtube/>
-				
-			}
+			console.log("workoutShown");	
+		} else {
+			console.log("not workoutShown");
+		}
 
 
 
@@ -405,7 +410,7 @@ class WorkoutScreen extends Component {
 		        		<div id="result">
 			            	{finalTable}
 							{workout}
-							{Youtube}
+							{youtube}
 		            	</div>
 		          	</div>
 		       	</div>

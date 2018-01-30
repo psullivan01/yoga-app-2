@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
+import YouTube from 'react-youtube';
 import './Youtube.css';
 
-class Youtube extends Component {
+class YoutubePlayer extends Component {
 
 	render() {
 
@@ -9,11 +10,11 @@ class Youtube extends Component {
             height: '390',
             width: '640',
             playerVars: { // https://developers.google.com/youtube/player_parameters
-              autoplay: 0
+              autoplay: 1
             }
           };
 		return (
-            <Youtube
+            <YouTube
           videoId="M7lc1UVf-VE"
           opts={opts}
           onReady={this._onReady}
@@ -28,4 +29,4 @@ class Youtube extends Component {
   }
    
 
-export default Youtube;
+export default YoutubePlayer;
