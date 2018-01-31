@@ -352,7 +352,7 @@ class WorkoutScreen extends Component {
 			<div>
 			<div>
 				<br/>
-				<div className="topTableText">*Click generate workout button for different poses</div>
+				<div className="topTableText">*Click generate workout button to cycle throught new poses</div>
 				<table class="table table-fixed">
 					<thead> 
 						<tr> 

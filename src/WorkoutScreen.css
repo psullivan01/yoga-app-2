@@ -44,11 +44,13 @@
   background-color: #f75d40;
   border-color: #808080;
   font-size: 20px;
+  text-align: left;
 }
 .table-fixed {
   width: 100%;
-  text-align: ;
+  text-align:left ;
   background-color: #f3f3f3;
+  font-size: 20px;
 }
 
 .col-xs-3 {
@@ -60,7 +62,7 @@
 }
 
 .stepOne  {
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid #f75d40;
   text-align: left;
   color: #3d3d3d;
   font-family: "Oswald";
@@ -71,7 +73,7 @@
 }
 
 .stepTwo  {
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid #f75d40;
   text-align: left;
   color: #3d3d3d;
   font-family: "Oswald";
@@ -84,7 +86,7 @@
 }
 
 .stepThree  {
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid #f75d40;
   text-align: left;
   color: #3d3d3d;
   font-family: "Oswald";
@@ -96,7 +98,7 @@
 }
 
 .stepFour  {
-  border-bottom: 3px solid red;
+  border-bottom: 3px solid #f75d40;
   text-align: left;
   color: #3d3d3d;
   font-family: "Oswald";
