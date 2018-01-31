@@ -28,9 +28,6 @@ class App extends Component {
                 <a className="nav-link active" href="/">Home</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link active" href="/about">About Us</a>
-              </li>
-              <li className="nav-item">
                 <a className="nav-link" href="/workout">Workout</a>
               </li>
               <li className="nav-item">

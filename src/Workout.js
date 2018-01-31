@@ -12,8 +12,8 @@ class Workout extends Component {
 		return (
 			<div className="resultBackground">
 			<div className=" col-lg-6">
-				<h4 className="title-pic">Pose: {this.props.pose}</h4>
-				<h4 className="card-time">Time Remaining: {this.props.time}</h4>
+				<h4 className="title-pic">{this.props.pose}</h4>
+				<h4 className="card-time">{this.props.time}</h4>
 	        	<img className="card-img-top-pic" src={this.props.posePicture} alt="pose"/>
 	      	</div>
 			</div>
