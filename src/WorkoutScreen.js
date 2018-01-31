@@ -374,7 +374,7 @@ class WorkoutScreen extends Component {
 
 
 		var youtube = null
-
+		var stepOne = <div className="stepOne">Step 1:</div>
 
 		if (this.state.workoutPoses.length === 0) {
 			finalTable = ""
@@ -386,6 +386,7 @@ class WorkoutScreen extends Component {
 			workoutTable = ""
 			finalTable = ""
 			yogaForm = ""
+			stepOne = ""
 			youtube = <Youtube/>
 
 			var workout = <Workout key={0}
@@ -404,7 +405,7 @@ class WorkoutScreen extends Component {
 			
 			
 		    <div className="container" id="topDiv">
-				<div className="stepOne">Step 1:</div>
+				{stepOne}
 		    	<div className="row">
 		      		{workoutCards}
 		        	<div className="col-lg-12">
