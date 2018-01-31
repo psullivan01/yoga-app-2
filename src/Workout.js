@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import WorkoutScree from './WorkoutScreen.js'
+import WorkoutScreen from './WorkoutScreen.js';
+import DisplayWorkout from './Workout.css';
 
 class Workout extends Component {
 
@@ -9,12 +10,13 @@ class Workout extends Component {
 
 	render () {
 		return (
-			<div className="cardStyle card col-lg-4">
-				<h4 className="card-title">{this.props.pose}</h4>
-				<h4>{this.props.time}</h4>
-	        	<img className="card-img-top" src={this.props.posePicture} alt="pose"/>
+			<div className="resultBackground">
+			<div className=" col-lg-6">
+				<h4 className="title-pic">{this.props.pose}</h4>
+				<h4 className="card-time">{this.props.time}</h4>
+	        	<img className="card-img-top-pic" src={this.props.posePicture} alt="pose"/>
 	      	</div>
-
+			</div>
 		)
 	}
 }

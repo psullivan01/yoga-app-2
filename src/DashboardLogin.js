@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import {withRouter} from "react-router-dom";
 import './DashboardLogin.css';
 import GoogleLogin from 'react-google-login';
+import image from './img/yogalogin2.png';
 
 
 
@@ -79,7 +80,7 @@ class DashboardLogin extends Component {
 
 <div class="row" id="box-search">
 <div class="thumbnail text-center">
-    <img src="https://indobubbletea.files.wordpress.com/2016/03/bigstock-white-wood-texture-background-50738852-kopie.jpg" alt="" class="img-responsive"/>
+    <img src={image} alt="" class="img-responsive"/>
     <div class="caption">
     <div className="login-page">
         <div className="login-dashboard-wrapper">

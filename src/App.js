@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import MyWorkouts from './MyWorkouts.js';
 import WorkoutScreen from './WorkoutScreen.js';
 import Login from './Login.js';
-import HomePage from './HomePage.js'
-import DashboardLogin from './DashboardLogin.js'
+import HomePage from './HomePage.js';
+import DashboardLogin from './DashboardLogin.js';
 import './App.css';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router';
@@ -26,9 +26,6 @@ class App extends Component {
             <ul className="nav justify-content-end">
               <li className="nav-item">
                 <a className="nav-link active" href="/">Home</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="/about">About Us</a>
               </li>
               <li className="nav-item">
                 <a className="nav-link" href="/workout">Workout</a>
