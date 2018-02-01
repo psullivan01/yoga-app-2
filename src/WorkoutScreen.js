@@ -34,6 +34,7 @@ var	standing_forward_fold = require('./img/standing_forward_fold.jpg')
 var	childs_pose_shoulders = require('./img/childs_pose_shoulders.jpg')
 var	shoulder_opener = require('./img/shoulder_opener.jpg')
 var	thread_the_needle = require('./img/thread_the_needle.jpg')
+var yoga_high_five = require('./img/yoga-high-five.jpg')
 
 function addCards() {
 	var muscleImages = [quad, ham, hip, lBack, uBack, shoulder]
@@ -206,10 +207,42 @@ class WorkoutScreen extends Component {
 				poseTime: poseTimer,
 				timePose: timePose
 			})
-
 		}	
 	}
 
+	intervalMoves(poseArray, imageArray, time) {
+		var shiftedPose = []
+		var shiftedImage = []
+		var shiftedTime = []
+		var finalPose = []
+		var finalImage = []
+		var finalTime = []
+
+		for (var i=1; i<=poseArray.length; i++) {
+			if (i===poseArray.length) {
+				shiftedPose.push('Great Job!')
+				shiftedImage.push(yoga_high_five)
+				shiftedTime.push(0)
+			} else {
+				shiftedPose.push('Next Move: ' + poseArray[i])
+				shiftedImage.push(imageArray[i])
+				shiftedTime.push(10)
+			}
+		}
+
+		for (var x=0; x<poseArray.length; x++) {
+			finalPose.push(poseArray[x])
+			finalPose.push(shiftedPose[x])
+			finalImage.push(imageArray[x])
+			finalImage.push(shiftedImage[x])
+			finalTime.push(time)
+			finalTime.push(shiftedTime[x])
+		}
+
+		var product = [finalPose, finalImage, finalTime]
+		
+		return product
+	}
 
 
 	displayTime(totalSeconds) {
@@ -238,29 +271,33 @@ class WorkoutScreen extends Component {
 	displayPoses(time, pose, title) {
 		var move = pose.shift()
 		var moveTitle = title.shift()
+		var moveTime = time.shift()
 
 		this.setState({
 			currentPicture: move,
-			currentPose: moveTitle
+			currentPose: moveTitle,
+			currentTime: moveTime
 		})
 
-		this.displayTime(time)
+		this.displayTime(moveTime)
 
 		if (pose.length) {
 			setTimeout(()=>{
 				this.displayPoses(time, pose, title)
-			}, time * 1000)
+			}, moveTime * 1000)
 		}
 	}
 
 	launchWorkout(event) {
 		event.preventDefault()
+		var intervalWorkout = this.intervalMoves(this.state.workoutPoses, this.state.posePictures, this.state.timePose)
 
 		this.setState({
 			workoutShown: true
 		})
 
-		this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
+		this.displayPoses(intervalWorkout[2], intervalWorkout[1], intervalWorkout[0])
+		// this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
 	}
 
 
