@@ -5,6 +5,8 @@ import WorkoutListItem from './WorkoutListItem.js';
 import Workout from './Workout.js'
 import Youtube from './Youtube.js'
 
+var Promise = require('bluebird')
+
 var	quad = require('./img/quadriceps.jpg')
 var	ham = require('./img/hamstrings.jpg')
 var	hip = require('./img/hips.jpg')
@@ -51,53 +53,6 @@ function addCards() {
 }
 
 
-// display Time and Display poses functions 
-
-// var links = {
-// 	saddle: 'link_1',
-// 	half_saddle: 'link_2'
-// }
-
-// var pose = ['saddle', 'half_saddle']
-
-// function displayTime(totalSeconds) {
-// 	var minutes = Math.floor(totalSeconds / 60)
-// 	var seconds = totalSeconds % 60
-
-// 	if (seconds < 10) {
-// 		seconds = '0' + seconds
-// 	}
-
-// 	var display = minutes + ":" + seconds
-// 	console.log(display)
-
-// 	totalSeconds--
-
-// 	if (totalSeconds >= 0) {
-// 		setTimeout(()=>{
-// 			displayTime(totalSeconds)
-// 		}, 1000)
-// 	}
-// }
-
-// function displayPoses(time, pose) {
-// 	var move = pose.shift()
-// 	var totalSeconds = time * 60
-
-// 	console.log(links[move])
-
-// 	displayTime(totalSeconds)
-
-// 	if (pose.length) {
-// 		setTimeout(()=>{
-// 			displayPoses(time, pose)
-// 		}, time * 60000)
-// 	}
-//  }
-
-
-// end display functions
-
 class WorkoutScreen extends Component {
 
 	constructor(props) {
@@ -116,7 +71,9 @@ class WorkoutScreen extends Component {
 			timePose: 0,
 			workoutShown: false,
 			currentPose: "",
-			currentPicture: ""
+			currentPicture: "",
+			currentBilateral: false,
+			currentTime: 0
 		};
 	}
 
@@ -159,14 +116,19 @@ class WorkoutScreen extends Component {
 		var timePose = timeSeconds / poseCount
 		var seconds = timePose % 60
 
-		console.log(seconds)
-
 		if (seconds < 10) {
 			seconds = '0' + seconds
 		}
 
 		var timeMinutesSeconds = Math.floor(timePose / 60) + ":" + seconds
 		return timeMinutesSeconds
+	}
+
+	changeTime = (event) => {
+		var time = parseInt(event.target.value)
+		this.setState({
+			time: time
+		})
 	}
 
 	generateWorkout(event) {
@@ -214,8 +176,7 @@ class WorkoutScreen extends Component {
 				['Thread the Needle', thread_the_needle, true]
 			]
 		}
-
-
+ 
 		for (var x=0; x<this.state.muscles.length; x++) {
 			if (this.state.muscles[x].isPicked) {
 				var lookup = this.state.muscles[x].lookup
@@ -229,24 +190,27 @@ class WorkoutScreen extends Component {
 				selectedPoseImage.push(poses[lookup][rand][1])
 				selectedPoseBilateral.push(poses[lookup][rand][2])
 			}
-		}
 
-		var timeMinutes = this.state.time
-		var poseCount = selectedMuscles.length
-		var poseTimer = this.getPoseDuration(timeMinutes, poseCount)
-		var timePose = this.getTimePose(timeMinutes, poseCount)
+			var timeMinutes = this.state.time
+			var poseCount = selectedMuscles.length
+			var poseTimer = this.getPoseDuration(timeMinutes, poseCount)
+			var timePose = this.getTimePose(timeMinutes, poseCount)
 
-		this.setState({
-			workoutMuscles: selectedMuscles,
-			workoutMuscleLookups: selectedMuscleLookup,
-			poseRand: poseRand,
-			workoutPoses: selectedPoses,
-			posePictures: selectedPoseImage,
-			poseBilateral: selectedPoseBilateral,
-			poseTime: poseTimer,
-			timePose: timePose
-		})
+			this.setState({
+				workoutMuscles: selectedMuscles,
+				workoutMuscleLookups: selectedMuscleLookup,
+				poseRand: poseRand,
+				workoutPoses: selectedPoses,
+				posePictures: selectedPoseImage,
+				poseBilateral: selectedPoseBilateral,
+				poseTime: poseTimer,
+				timePose: timePose
+			})
+
+		}	
 	}
+
+
 
 	displayTime(totalSeconds) {
 		var minutes = Math.floor(totalSeconds / 60)
@@ -257,15 +221,19 @@ class WorkoutScreen extends Component {
 		}
 
 		var display = minutes + ":" + seconds
-		this.setState({poseTime: display})
+		this.setState({
+			poseTime: display,
+			currentTime: totalSeconds
+		})
 		totalSeconds--
 
 		if (totalSeconds > 0) {
 			setTimeout(()=>{
 				this.displayTime(totalSeconds)
 			}, 1000)
-		}
+		} 
 	}
+
 
 	displayPoses(time, pose, title) {
 		var move = pose.shift()
@@ -293,7 +261,6 @@ class WorkoutScreen extends Component {
 		})
 
 		this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
-		console.log(this.state)
 	}
 
 
@@ -380,7 +347,6 @@ class WorkoutScreen extends Component {
 			finalTable = ""
 		}
 
-
 		if (this.state.workoutShown) {
 			workoutCards = ""
 			workoutTable = ""
@@ -394,15 +360,11 @@ class WorkoutScreen extends Component {
 									time={this.state.poseTime}
 									posePicture={this.state.currentPicture}/>
 
-			console.log("workoutShown");	
-		} else {
-			console.log("not workoutShown");
-		}
+			}
 
 
 
 		return (
-			
 			
 		    <div className="container" id="topDiv">
 				{stepOne}
