@@ -1,0 +1,49 @@
+.cardStylePic {
+border: 3px solid green;
+margin-left: 400px;
+padding-top:50px;
+}
+
+.title-pic {
+    /* border: 3px solid pink; */
+    text-align: center;
+    color: #3d3d3d;
+    font-family: "Oswald";
+    font-weight: 700;
+    font-size: 2.5em;
+    padding-top: 70px;
+    
+   margin-left: 35px;
+    width: 1000px;
+}
+
+.card-time {
+    /* border: 3px solid red; */
+        text-align: center;
+        color: #3d3d3d;
+        font-family: "Oswald";
+        font-weight: 300;
+        font-size: 2.5em;
+   
+        width: 1000px;
+        margin-left: 35px;
+      
+}
+
+.card-img-top-pic {
+    border: 3px solid blue;
+    margin-left: 25em;
+    height: 400px;
+    width: 400px;
+}
+
+.resultBackground {
+    background-image: url('./img/yogapro-mac.png');
+    background-size: 1100px 800px;
+    background-repeat: no-repeat;
+    height: 1000px;
+}
+
+#topdiv {
+    background-color: red;
+}

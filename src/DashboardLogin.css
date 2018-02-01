@@ -1,6 +1,10 @@
 .container {
-    margin-top: 50px;
+    margin-top: 30px;
     text-align: center;
+  }
+
+  .login-page {
+    padding-top: 110px;
   }
   
   .title {
@@ -12,7 +16,7 @@
     margin: 15px auto;
     padding: 15px;
     padding-left: 20px;
-    width: 250px;
+    width: 200px;
     text-align: left;
     color: white;
     border: none;
@@ -25,26 +29,6 @@
     color: white;
   }
   
-  .btn-facebook {
-    background-color: #3B5998;
-  }
-  
-  .btn-facebook:hover,
-  .btn-facebook:focus,
-  .btn-facebook:active {
-    background-color: #3B5998;
-  }
-  
-  .btn-twitter {
-    background-color: #1DA1F2;
-  }
-  
-  .btn-twitter:hover,
-  .btn-twitter:focus,
-  .btn-twitter:active {
-    background-color: #1DA1F2;  
-  }
-  
   .btn-google {
     background-color: #DB4437;
   }
@@ -53,4 +37,20 @@
   .btn-google:focus,
   .btn-google:active {
     background-color: #DB4437;  
+  }
+
+  .thumbnail {
+    position: relative;
+  }
+  
+  .caption {
+    position: absolute;
+    top: 45%;
+    left: 0;
+    width: 100%;
+  }
+  
+  .img-responsive {
+  height:700px;
+  width: 100%;
   }

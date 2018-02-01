@@ -3,6 +3,7 @@ import WorkoutCard from './WorkoutCard.js';
 import './WorkoutScreen.css';
 import WorkoutListItem from './WorkoutListItem.js';
 import Workout from './Workout.js'
+import Youtube from './Youtube.js'
 
 var Promise = require('bluebird')
 
@@ -76,6 +77,13 @@ class WorkoutScreen extends Component {
 		};
 	}
 
+	changeTime = (event) => {
+        var time = parseInt(event.target.value)
+        this.setState({
+            time: time
+        })
+	}
+	
 	pickCard(cardIndex) {
 		var cardToPick = {...this.state.muscles[cardIndex]}
 
@@ -274,51 +282,66 @@ class WorkoutScreen extends Component {
 									pose={this.state.workoutPoses[index]}/>
 
 		})
+	
 
-		var finalTable =
-		<div>
-			<br/>
-			<table class="table table-fixed">
-				<thead> 
-					<tr> 
-						<th class="col-xs-3">Duration</th> 
-						<th class="col-xs-3">Muscle Group</th> 
-						<th class="col-xs-6">Pose</th> 
-					</tr> 
-				</thead>
-				{workoutTable}
-			</table>
-			<br/>
-			<button type="submit" className="btn btn-primary" id="Begin" onClick={this.launchWorkout.bind(this)}>
-				<a className="btn btn-primary" href="/launch_workout">Begin Workout</a>
-			</button>
-		</div>
 
 		var yogaForm =
 			<form id="yoga-form">
 		        <div className="submitNav">
+					<div className="stepTwo">Step 2:</div>
 		            <span className="durationText">Select Workout Duration</span>
+					<span className="workoutTime">
 		            <select id="select" onChange={(e) => this.changeTime(e)}>
-		              <option>1</option>
-		              <option>2</option>
-		              <option>4</option>
-		              <option>6</option>
-		              <option>8</option>
-		              <option>10</option>
-		              <option>12</option>
-		              <option>14</option>
-		              <option>16</option>
-		              <option>18</option>
-		              <option>20</option>
+		              <option>1 Minute</option>
+		              <option>2 Minutes</option>
+		              <option>4 Minutes</option>
+		              <option>6 Minutes</option>
+		              <option>8 Minutes</option>
+		              <option>10 Minutes</option>
+		              <option>12 Minutes</option>
+		              <option>14 Minutes</option>
+		              <option>16 Minutes</option>
+		              <option>18 Minutes</option>
+		              <option>20 Minutes</option>
 		            </select>
+					</span>
 		        </div>
 		        <div className="card-deck row">
 
 		        </div>
+				<div className="stepThree">Step 3:</div>
 		        <div className="submitButton">
-		            <button type="submit" className="btn btn-primary" id="submission" onClick={this.generateWorkout.bind(this)}>Generate Workout</button>
+		            <button type="submit" className="btn btn-primary generateTableButton" id="submission" href="#stepFour" onClick={this.generateWorkout.bind(this)}>Generate Workout</button>
 		        </div>
 		    </form>
+
+			var finalTable =
+			<div>
+			<div>
+				<br/>
+				<div className="topTableText">*Click generate workout button to cycle throught new poses</div>
+				<table class="table table-fixed">
+					<thead> 
+						<tr> 
+							<th class="col-xs-3">Duration</th> 
+							<th class="col-xs-3">Muscle Group</th> 
+							<th class="col-xs-3">Pose</th> 
+						</tr> 
+					</thead>
+					{workoutTable}
+				</table>
+				
+				<br/>
+				<div className="stepFour" id="stepFour">Step 4:</div>
+				</div>
+			<div className="beginButton">
+					<a className="btn btn-primary beginWorkoutButton" onClick={this.launchWorkout.bind(this)} href="/launch_workout">Begin Workout</a>
+			</div>
+			</div>
+
+
+		var youtube = null
+		var stepOne = <div className="stepOne">Step 1:</div>
 
 		if (this.state.workoutPoses.length === 0) {
 			finalTable = ""
@@ -329,17 +352,22 @@ class WorkoutScreen extends Component {
 			workoutTable = ""
 			finalTable = ""
 			yogaForm = ""
+			stepOne = ""
+			youtube = <Youtube/>
 
 			var workout = <Workout key={0}
 									pose={this.state.currentPose}
 									time={this.state.poseTime}
 									posePicture={this.state.currentPicture}/>
+
 			}
+
 
 
 		return (
 			
 		    <div className="container" id="topDiv">
+				{stepOne}
 		    	<div className="row">
 		      		{workoutCards}
 		        	<div className="col-lg-12">
@@ -347,10 +375,11 @@ class WorkoutScreen extends Component {
 		        	</div>
 		        </div>
 		        <div className="row">
-		        	<div className="col-lg-12">
+		        	<div className="workoutScreen col-lg-12">
 		        		<div id="result">
 			            	{finalTable}
-			            	{workout}
+							{workout}
+							{youtube}
 		            	</div>
 		          	</div>
 		       	</div>

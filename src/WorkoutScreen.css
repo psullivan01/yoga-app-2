@@ -1,6 +1,30 @@
+.submitNav {
+  padding-top: 50px;
+}
+
 .submitButton {
   text-align: center;
-  padding-top: 25px;
+  padding-top: 55px;
+  padding-bottom: 10px;
+}
+
+.durationText {
+  font-size: 35px;
+  font-family: 'Century Gothic';
+}
+
+#select {
+  font-size: 35px;
+  font-family: 'Century Gothic';
+}
+
+.step2Text {
+  font-size: 35px;
+  font-family: 'Century Gothic';
+}
+.workoutTime {
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
 .tableStyle{
@@ -17,10 +41,112 @@
 }
 
 .table-fixed thead tr th {
-  background-color: #f39c12;
-  border-color: #e67e22;
+  background-color: #f75d40;
+  border-color: #808080;
+  font-size: 20px;
+  text-align: left;
 }
 .table-fixed {
   width: 100%;
+  text-align:left ;
   background-color: #f3f3f3;
+  font-size: 20px;
 }
+
+.col-xs-3 {
+  text-align: center;
+}
+
+.topTableText {
+ text-align: left; 
+}
+
+.stepOne  {
+  border-bottom: 3px solid #f75d40;
+  text-align: left;
+  color: #3d3d3d;
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 3em;
+  padding-left: 30px;
+  margin-bottom: 0px;
+}
+
+.stepTwo  {
+  border-bottom: 3px solid #f75d40;
+  text-align: left;
+  color: #3d3d3d;
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 3em;
+  margin-bottom: 30px;
+  margin-top: 50px;
+  padding-left: 30px;
+  
+}
+
+.stepThree  {
+  border-bottom: 3px solid #f75d40;
+  text-align: left;
+  color: #3d3d3d;
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 3em;
+  margin-top: 100px;
+  padding-left: 30px;
+  
+}
+
+.stepFour  {
+  border-bottom: 3px solid #f75d40;
+  text-align: left;
+  color: #3d3d3d;
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: 3em;
+  margin-top: 60px;
+  padding-left: 30px;
+  
+}
+
+
+.generateTableButton {
+  width: 270px;
+  height: 60px;
+  background: rgba(236,80,51, 0.8); 
+  font-family: 'Century Gothic';
+  font-size: 25px;
+  box-shadow: none;
+}
+
+.generateTableButton:hover {
+  background: rgba(236,80,51, 1.0); 
+  box-shadow: none;
+}
+
+.generateTableButton:focus {
+  box-shadow: none;
+}
+
+.beginWorkoutButton {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    width: 270px;
+    height: 60px;
+    background: rgba(236,80,51, 1.0); 
+    font-family: 'Century Gothic';
+    font-size: 25px;
+    box-shadow: none;
+    text-align: center;
+    padding-top: 15px;
+  }
+  
+  .beginWorkoutButton:hover {
+    background: rgba(52,210,147, 1.0); 
+    box-shadow: none;
+  }
+  
+  .beginWorkoutButton:focus {
+    box-shadow: none;
+  }
+  

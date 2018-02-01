@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './HomePage.css';
-import image from './img/yogaglo1.png';
+import image from './img/yogapro.png';
 
 class HomePage extends Component {
 
@@ -14,13 +14,13 @@ class HomePage extends Component {
         <div className="container">
           <div className="row">
             <div className="col-xl-9 mx-auto">
-              <img src={image} width="850" height="200" alt="No Image"/>
-              <div ><button class="btn btn-primary menuButton" href="/workout" type="submit">Workout Now!</button></div>
+              <img src={image} width="850" height="300" alt="No Image"/>
+              <div><a className="btn btn-primary menuButton" href="/workout">Workout Now!</a></div>
             </div>
           </div>
         </div>
       </header>
-      {/* <h3 className="yogaSlogan">DROP AND GIVE ME ZEN!</h3> */}
+      <h3 className="yogaBenifits">Benefits From Yoga</h3>
       <section className="features-icons text-center">
             <div className="container">
               <div className="row">
@@ -54,15 +54,27 @@ class HomePage extends Component {
           </section>
 
 
+          <div class="row" id="box-search">
+    <div class="thumbnail text-center">
+        <img src="https://static1.squarespace.com/static/550c9cd6e4b0e1eb26527726/t/58e3cf1703596e548661fac8/1512418113229/background.jpg?format=1500w" alt="" class="img-responsive"/>
+        <div class="yogaCaption">
+            <p>yogapro</p>
+        </div>
+        <div class="aboutYogapro">
+        <p>Yogapro’s flexible workouts gives users the ability to focus multiple areas of the body in your workout routine. Generating multiple workout poses from the body areas you select gives endless custom workout options. Based on the user’s selection, a random selection of positions is generated and displayed in a chart to the user. What makes our app different, is that the user can regenerate their workouts and receive different random workout yoga positions each time the button is clicked.</p>
+        </div>
+    </div>
+</div>
 
           <div class="row" id="box-search">
     <div class="thumbnail text-center">
         <img src="http://www.dreams.metroeve.com/wp-content/uploads/2016/05/Zen.jpg" alt="" class="img-responsive"/>
         <div class="caption">
-            <h3>DROP AND GIVE ME ZEN</h3>
+            <p>DROP AND GIVE ME ZEN</p>
         </div>
     </div>
 </div>
+
 
       </div>
           );
