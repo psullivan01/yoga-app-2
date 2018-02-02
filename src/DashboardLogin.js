@@ -46,6 +46,7 @@ class DashboardLogin extends Component {
       name: response.profileObj.name,
       tokenExpiresAt: response.tokenObj.expires_at,});
     this.props.history.push('/');
+    this.props.successfulLogin()
     return response;
   }
 
@@ -57,6 +58,7 @@ class DashboardLogin extends Component {
       .then((resp) => {
         _this.props.notifications.add('danger', `Sorry, there was a problem. Details: ${resp.message}`);
       })
+      this.props.unSuccessfulLogin()
   }
 
   parseJSON(response) {

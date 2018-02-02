@@ -403,23 +403,33 @@ class WorkoutScreen extends Component {
 
 		return (
 			
-		    <div className="container" id="topDiv">
-				{stepOne}
-		    	<div className="row">
-		      		{workoutCards}
-		        	<div className="col-lg-12">
-		        		{yogaForm}
-		        	</div>
-		        </div>
-		        <div className="row">
-		        	<div className="workoutScreen col-lg-12">
-		        		<div id="result">
-			            	{finalTable}
+		    <div id="topDiv">
+				<div className="container">
+					{stepOne}
+					<div className="row">
+						{workoutCards}
+						<div className="col-lg-12">
+							{yogaForm}
+						</div>
+					</div>
+				</div>
+				<div className="container">
+					<div className="row no-gutters">
+						<div className="workoutScreen col-lg-12">
+							<div id="result">
+								{finalTable}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="container-fluid">
+					<div className="row no-gutters">
+						<div className="workoutScreen col-lg-12">
 							{workout}
 							{youtube}
-		            	</div>
-		          	</div>
-		       	</div>
+						</div>
+					</div>
+				</div>
 		    </div>
 		)
 	}

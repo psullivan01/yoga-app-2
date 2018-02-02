@@ -14,7 +14,7 @@ padding-top:50px;
     padding-top: 70px;
     
    margin-left: 35px;
-    width: 1000px;
+   
 }
 
 .card-time {
@@ -25,23 +25,20 @@ padding-top:50px;
         font-weight: 300;
         font-size: 2.5em;
    
-        width: 1000px;
+    
         margin-left: 35px;
       
 }
 
 .card-img-top-pic {
     border: 3px solid blue;
-    margin-left: 25em;
-    height: 400px;
-    width: 400px;
+    text-align: center;
 }
 
 .resultBackground {
-    background-image: url('./img/yogapro-mac.png');
-    background-size: 1100px 800px;
+    background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/S7FfzzQmliwca04xu/beautiful-sky-and-sea-at-dusk-background-reflections-in-the-calm-water_htbkgffkhe_thumbnail-full01.png');
+    background-size: cover;
     background-repeat: no-repeat;
-    height: 1000px;
 }
 
 #topdiv {

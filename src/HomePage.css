@@ -65,11 +65,12 @@ header.masthead {
 .menuButton {
   margin-top: 30px;
   margin-bottom: 20px;
-  width: 170px;
+  width: 190px;
   height: 70px;
   background: rgba(236,80,51, 0.5); /* Green background with 30% opacity */
   font-family: 'Century Gothic';
-  padding-top: 25px;
+  font-size: 25px;
+  padding-top: 20px;
 }
 
 .menuButton:hover {

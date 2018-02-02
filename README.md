@@ -1,10 +1,9 @@
-# YogApp
-Yoga Application
-The Kindness Yoga application is a web application that is designed to give users the ability to pick areas of the body they want to do their work out to. Yoga is a spiritual and ascetic discipline that includes simple meditation and the adoption of specific bodily postures. Yoga is widely practiced for health and relaxation. 
+# Yogapro
+Yogapro is a web application that is designed to give users the ability to pick areas of the body they want to do their work out to. Yoga is a spiritual and ascetic discipline that includes simple meditation and the adoption of specific bodily postures. Yoga is widely practiced for health and relaxation. 
 
 Overview:
 
-Kindness Yoga gives the user a selection of body parts on which they would like to work out. First, the user selects the total duration of the yoga workout. The user can add and remove body types to generate yoga positions on. After the selection is made, the user can select the “Generate Workout” button. Based on the user’s selection, a random selection of positions is generated and displayed in a chart to the user. What makes our app different, is that the user can regenerate their workouts and receive different random workout yoga positions each time the button is clicked. The user can regenerate their workout as many times as they like before they begin their workout.
+Yogapro gives the user a selection of body parts on which they would like to work out. First, the user selects the total duration of the yoga workout. The user can add and remove body types to generate yoga positions on. After the selection is made, the user can select the “Generate Workout” button. Based on the user’s selection, a random selection of positions is generated and displayed in a chart to the user. What makes our app different, is that the user can regenerate their workouts and receive different random workout yoga positions each time the button is clicked. The user can regenerate their workout as many times as they like before they begin their workout.
 
 Application Steps:
 
