@@ -115,7 +115,7 @@ class WorkoutScreen extends Component {
 	getPoseDuration(timeMintues, poseCount) {
 		var timeSeconds = timeMintues * 60
 		var timePose = timeSeconds / poseCount
-		var seconds = timePose % 60
+		var seconds = Math.floor(timePose % 60)
 
 		if (seconds < 10) {
 			seconds = '0' + seconds
@@ -177,37 +177,67 @@ class WorkoutScreen extends Component {
 				['Thread the Needle', thread_the_needle, true]
 			]
 		}
- 
-		for (var x=0; x<this.state.muscles.length; x++) {
-			if (this.state.muscles[x].isPicked) {
-				var lookup = this.state.muscles[x].lookup
-				var rand = Math.floor(Math.random() * poses[lookup].length)
-				
-				selectedMuscles.push(this.state.muscles[x].title)
-				selectedMuscleLookup.push(lookup)
-				poseRand.push(rand)
 
-				selectedPoses.push(poses[lookup][rand][0])
-				selectedPoseImage.push(poses[lookup][rand][1])
-				selectedPoseBilateral.push(poses[lookup][rand][2])
+		var poseCount = 0
+
+		for (var z=0; z<this.state.muscles.length; z++) {
+			if (this.state.muscles[z].isPicked) {
+				poseCount++
 			}
+ 		}
 
-			var timeMinutes = this.state.time
-			var poseCount = selectedMuscles.length
-			var poseTimer = this.getPoseDuration(timeMinutes, poseCount)
-			var timePose = this.getTimePose(timeMinutes, poseCount)
+		var timeMinutes = this.state.time
+		var timePose = this.getTimePose(timeMinutes, poseCount)
 
-			this.setState({
-				workoutMuscles: selectedMuscles,
-				workoutMuscleLookups: selectedMuscleLookup,
-				poseRand: poseRand,
-				workoutPoses: selectedPoses,
-				posePictures: selectedPoseImage,
-				poseBilateral: selectedPoseBilateral,
-				poseTime: poseTimer,
-				timePose: timePose
-			})
-		}	
+		if (timePose > 180) {
+			while (timePose > 180) {
+				for (var x=0; x<this.state.muscles.length; x++) {
+					if (this.state.muscles[x].isPicked) {
+						var lookup = this.state.muscles[x].lookup
+						var rand = Math.floor(Math.random() * poses[lookup].length)
+						
+						selectedMuscles.push(this.state.muscles[x].title)
+						selectedMuscleLookup.push(lookup)
+						poseRand.push(rand)
+
+						selectedPoses.push(poses[lookup][rand][0])
+						selectedPoseImage.push(poses[lookup][rand][1])
+						selectedPoseBilateral.push(poses[lookup][rand][2])
+					}
+				}
+				timePose = this.getTimePose(timeMinutes, selectedPoses.length)
+			}
+		} else {
+			for (var x=0; x<this.state.muscles.length; x++) {
+				if (this.state.muscles[x].isPicked) {
+					var lookup = this.state.muscles[x].lookup
+					var rand = Math.floor(Math.random() * poses[lookup].length)
+					
+					selectedMuscles.push(this.state.muscles[x].title)
+					selectedMuscleLookup.push(lookup)
+					poseRand.push(rand)
+
+					selectedPoses.push(poses[lookup][rand][0])
+					selectedPoseImage.push(poses[lookup][rand][1])
+					selectedPoseBilateral.push(poses[lookup][rand][2])
+				}
+			}
+		}
+
+		var poseTimer = this.getPoseDuration(timeMinutes, selectedPoses.length)
+
+		console.log(timePose, poseTimer)
+
+		this.setState({
+			workoutMuscles: selectedMuscles,
+			workoutMuscleLookups: selectedMuscleLookup,
+			poseRand: poseRand,
+			workoutPoses: selectedPoses,
+			posePictures: selectedPoseImage,
+			poseBilateral: selectedPoseBilateral,
+			poseTime: poseTimer,
+			timePose: timePose
+		})
 	}
 
 	intervalMoves(poseArray, imageArray, time) {
@@ -247,7 +277,7 @@ class WorkoutScreen extends Component {
 
 	displayTime(totalSeconds) {
 		var minutes = Math.floor(totalSeconds / 60)
-		var seconds = totalSeconds % 60
+		var seconds = Math.floor(totalSeconds % 60)
 
 		if (seconds < 10) {
 			seconds = '0' + seconds
@@ -297,7 +327,7 @@ class WorkoutScreen extends Component {
 		})
 
 		this.displayPoses(intervalWorkout[2], intervalWorkout[1], intervalWorkout[0])
-		// this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
+		console.log(this.state)
 	}
 
 
