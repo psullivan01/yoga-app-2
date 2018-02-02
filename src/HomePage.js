@@ -3,6 +3,7 @@ import './HomePage.css';
 import image from './img/yogapro.png';
 import Panel from './img/YogaPanel.png';
 import Panel2 from './img/YogaPanel2.png';
+import Panel3 from './img/YogaMat.png';
 
 class HomePage extends Component {
 
@@ -73,20 +74,32 @@ class HomePage extends Component {
             <p>yogapro</p>
         </div>
         <div class="aboutYogapro">
-        <p>Yogapro’s flexible workouts gives users the ability to focus multiple areas of the body in your workout routine. Generating multiple workout poses from the body areas you select gives endless custom workout options. Based on the user’s selection, a random selection of positions is generated and displayed in a chart to the user. What makes our app different, is that the user can regenerate their workouts and receive different random workout yoga positions each time the button is clicked.</p>
+        <p>Yogapro’s flexible workouts gives users the ability to focus on multiple areas of the body for your workout routine. Allowing users to regenerate selected poses, control the duration, and view correct pose illustrations guarantee optimal workout results. Regardless of your skill level, Yogapro’s custom workout routine allows the user to find balance, focus, and determination during your workout.</p>
         </div>
     </div>
 </div>
 
-<div class="row" id="box-search">
+{/* <div class="row" id="box-search">
     <div class="thumbnail text-center">
         <img src={Panel2} alt="" />
         <div class="caption">
             <p>DROP AND GIVE ME ZEN</p>
         </div>
     </div>
-</div>
+</div> */}
 
+<div class="row" id="box-search">
+    <div class="thumbnail text-center">
+        <img src={Panel3} alt="" />
+        <div class="captionBottomTitle">
+        <p>ACHIEVE CALMNESS</p>
+        <div class="captionBottomText"> 
+        <p>Relax into your body and mind with our poses focused on helping you feel calm and relaxed.</p>
+        </div>
+      
+        </div>
+    </div>
+</div>
       </div>
           );
         }

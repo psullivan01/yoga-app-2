@@ -1,5 +1,5 @@
 # Yogapro
-Yogapro is a web application that is designed to give users the ability to pick areas of the body they want to do their work out to. Yoga is a spiritual and ascetic discipline that includes simple meditation and the adoption of specific bodily postures. Yoga is widely practiced for health and relaxation. 
+Yogapro is a web application that is designed to give users the ability to pick areas of the body they want to do their workout to. Yoga is a spiritual and ascetic discipline that includes simple meditation and the adoption of specific bodily postures. Yoga is widely practiced for health and relaxation. 
 
 Overview:
 
@@ -7,8 +7,8 @@ Yogapro gives the user a selection of body parts on which they would like to wor
 
 Application Steps:
 
-•	User selects total Duration of Yoga Workout
 •	User Adds/Removes body type to randomly generate workout
+•	User selects total Duration of Yoga Workout
 •	User clicks “Generate Workout” button to receive custom yoga workout routine. 
 •	User views the list of yoga workouts generated and has the option to begin workout or can start all over.
 •	After the user has begun the workout, a timer at the top of the page counts down before the next workout starts.
@@ -21,12 +21,12 @@ Team Members & Roles:
 •	Adam Ziegele
 Primary team role: Front-end/Back-end backup, styling
 Contributions: Provided vision in the initial project concept. Built a custom layout from scratch with focus on flat design. Split initial algorithm and logic for creating basic custom button functionality, then assisted with troubleshooting the implementation throughout the project. Led team in planning the user-interface, and evaluating it through the project.
-Key code portions: Most of the HTML, CSS, JavaScript, and jQuery.
+Key code portions:HTML, CSS, JavaScript, API's & React.
 
 •	Patrick Sullivan
 Primary team role: Back-end, styling
 Contributions: Created the API's needed to accomplish project requirements. Built a custom, YouTube play/mute player from scratch with focus on clean, robust design. Implemented functionality via the back end, returning data from the JS file for use in front end functionality. 
-Key code portions: HTML, CSS, JavaScript, API’s, jQuery and data.
+Key code portions: HTML, CSS, JavaScript, API’s,React and data.
 
 What we used: 
 
