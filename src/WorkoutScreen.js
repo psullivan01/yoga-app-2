@@ -140,7 +140,6 @@ class WorkoutScreen extends Component {
 		var selectedPoseLookup = []
 		var selectedPoseImage = []
 		var selectedPoseBilateral = []
-		var selectedPose
 		var poseRand = []
 		var poses = {
 			quads: [
@@ -350,8 +349,6 @@ class WorkoutScreen extends Component {
 
 		})
 	
-
-
 		var yogaForm =
 			<form id="yoga-form">
 		        <div className="submitNav">
@@ -426,10 +423,7 @@ class WorkoutScreen extends Component {
 									pose={this.state.currentPose}
 									time={this.state.poseTime}
 									posePicture={this.state.currentPicture}/>
-
 			}
-
-
 
 		return (
 			
@@ -454,7 +448,6 @@ class WorkoutScreen extends Component {
 		)
 	}
 }
-
 
 export default WorkoutScreen;
 
