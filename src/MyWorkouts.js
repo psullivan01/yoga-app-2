@@ -22,8 +22,6 @@ class MyWorkouts extends Component {
 
 	render () {
 
-		console.log({this.state})
-
 		var historyTable = this.state.response.map((row, index)=>{
 			return <MyWorkoutListItem key={index} 
 									name={this.state.response[index].name}

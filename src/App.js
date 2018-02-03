@@ -21,7 +21,7 @@ class App extends Component {
     }
   }
 
-userInfo(newEmail,userName) {
+userInfo(newEmail, userName) {
   this.setState({
     email: newEmail,
     name: userName
@@ -71,8 +71,8 @@ unSuccessfulLogin() {
               <li className="nav-item">
                 <Link className="nav-link active" to="/">Home</Link>
               </li>
-              {navWorkout}
-              {navMyWorkouts}
+                {navWorkout}
+                {navMyWorkouts}
               <li className="nav-item">
                 <Link className="btn btn-primary loginButton" to="/DashboardLogin">Login</Link>
               </li>
@@ -83,15 +83,15 @@ unSuccessfulLogin() {
         </nav>
 
         <Route path="/my_workouts" component={MyWorkouts}/>
-        <Route path="/workout" render={() =>{
-          return <WorkoutScreen email={this.state.email} name={this.state.name}/>
+        <Route path="/workout" render={()=>{
+            return <WorkoutScreen email={this.state.email} name={this.state.name}/>
           }}/>
         <Route path="/login" component={Login}/>
         <Route exact path="/" component={HomePage}/>
         <Route path="/about" component={DashboardLogin}/>
         <Route path="/DashboardLogin" render={() =>{
           return <DashboardLogin userInfo={this.userInfo.bind(this)} successfulLogin={this.successfulLogin.bind(this)} unSuccessfulLogin={this.unSuccessfulLogin.bind(this)}/>
-          }} />
+        }} />
 
         <div class="footerTest">
           <div id="motto">

@@ -75,7 +75,9 @@ class WorkoutScreen extends Component {
 			currentPose: "",
 			currentPicture: "",
 			currentBilateral: false,
-			currentTime: 0
+			currentTime: 0,
+			email: this.props.email,
+			name: this.props.name
 		};
 	}
 
@@ -226,7 +228,7 @@ class WorkoutScreen extends Component {
 
 		var poseTimer = this.getPoseDuration(timeMinutes, selectedPoses.length)
 
-		console.log(timePose, poseTimer)
+		console.log('generate workout state check:', this.state)
 
 		this.setState({
 			workoutMuscles: selectedMuscles,
@@ -321,24 +323,26 @@ class WorkoutScreen extends Component {
 	launchWorkout(event) {
 		event.preventDefault()
 
+		console.log('launch workout state check', this.state)
+
 		var payload = {
-			email: this.props.email , 
-			name: this.props.name,
+			email: this.state.email, 
+			name: this.state.name,
 			workout_date: new Date(),
-			workout_duration: this.state.timePose,
-			pose_array: this.state.workoutPoses
+			workout_duration: this.state.time,
+			pose_array: this.state.workoutPoses,
+			muscle_array: this.state.workoutMuscles
 		}
 
 
 		axios.post("/my_workouts", payload)
 		var intervalWorkout = this.intervalMoves(this.state.workoutPoses, this.state.posePictures, this.state.timePose)
-		
-					this.setState({
-						workoutShown: true
-					})
-		
-					this.displayPoses(intervalWorkout[2], intervalWorkout[1], intervalWorkout[0])
-					// this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
+
+			this.setState({
+				workoutShown: true
+			})
+
+			this.displayPoses(intervalWorkout[2], intervalWorkout[1], intervalWorkout[0])
 
 	}
 

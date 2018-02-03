@@ -6,9 +6,6 @@ import './DashboardLogin.css';
 import GoogleLogin from 'react-google-login';
 import image from './img/yogalogin2.png';
 
-
-
-
 class DashboardLogin extends Component {
   constructor(props) {
     super(props);
@@ -25,13 +22,11 @@ class DashboardLogin extends Component {
     this.checkResponseStatus       = this.checkResponseStatus.bind(this);
     this.parseJSON                 = this.parseJSON.bind(this);
     this.handleError               = this.handleError.bind(this);
-    this.handleSuccess               = this.handleSuccess.bind(this);
+    this.handleSuccess             = this.handleSuccess.bind(this);
   }
 
   responseGoogle(response){
     console.log(response)
-    
-   
   }
 
   failureResponseGoogle(response){
@@ -45,11 +40,13 @@ class DashboardLogin extends Component {
     this.setState({
       token: response.tokenId,
       name: response.profileObj.name,
-      tokenExpiresAt: response.tokenObj.expires_at,});
+      tokenExpiresAt: response.tokenObj.expires_at
+    });
     this.props.history.push('/');
     this.props.successfulLogin()
     this.props.userInfo(response.w3.U3, response.profileObj.name)
 
+    console.log('props: ', this.props)
     return response;
   }
 
@@ -82,33 +79,30 @@ class DashboardLogin extends Component {
   render() {
     return (
       <div>
-      
-
-<div class="row" id="box-search">
-<div class="thumbnail text-center">
-    <img src={image} alt="" class="img-responsive"/>
-    <div class="caption">
-    <div className="login-page">
-        <div className="login-dashboard-wrapper">
-          <div className="login-white-line"></div>
-          <div className="google-login-div">
-            <GoogleLogin className="btn btn-default btn-login btn-google"
-              clientId={this.state.clientId}
-              onSuccess={this.handleSuccess}
-              onFailure={this.handleError}
-              buttonText=""
-            >
-            <i class="fa fa-google-plus-official fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
-    Login with Google
-            </GoogleLogin>
+        <div class="row" id="box-search">
+          <div class="thumbnail text-center">
+            <img src={image} alt="" class="img-responsive"/>
+            <div class="caption">
+              <div className="login-page">
+                <div className="login-dashboard-wrapper">
+                  <div className="login-white-line"></div>
+                    <div className="google-login-div">
+                      <GoogleLogin className="btn btn-default btn-login btn-google"
+                        clientId={this.state.clientId}
+                        onSuccess={this.handleSuccess}
+                        onFailure={this.handleError}
+                        buttonText="">
+                        <i class="fa fa-google-plus-official fa-lg" aria-hidden="true"></i>&nbsp;&nbsp;
+                          Login with Google
+                      </GoogleLogin>
+                    </div>
+                  </div>
+                <div className="login-bottom-text">Not the page you wanted? <a href="/">Go back.</a></div>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="login-bottom-text">Not the page you wanted? <a href="/">Go back.</a></div>
       </div>
-    </div>
-</div>
-</div>
-</div>
     );
   }
 }
