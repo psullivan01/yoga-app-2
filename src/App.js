@@ -5,12 +5,56 @@ import Login from './Login.js';
 import HomePage from './HomePage.js';
 import DashboardLogin from './DashboardLogin.js';
 import './App.css';
+import image2 from './img/prologo1.png';
 import { Link } from 'react-router-dom';
 import { Route } from 'react-router';
 
 
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      isLoggedIn: false
+
+    }
+  }
+
+userInfo(newEmail,userName) {
+  this.setState({
+    email: newEmail,
+    name: userName
+  });
+}
+
+
+successfulLogin() {
+  this.setState({
+    isLoggedIn: true
+  });
+}
+
+unSuccessfulLogin() {
+  this.setState({
+    isLoggedIn: false
+  })
+}
+
   render() {
+
+    var navWorkout = <li className="nav-item">
+    <Link  className="nav-link" to="/workout">Workout</Link>
+  </li>
+
+  var navMyWorkouts = <li className="nav-item">
+  <Link className="nav-link" to="/my_workouts">My Workouts</Link>
+</li>
+
+ if(!this.state.isLoggedIn) {
+  navWorkout = ""
+  navMyWorkouts = ""
+ }
     return (
 
       <div>
@@ -18,23 +62,19 @@ class App extends Component {
           <div className="container">
             <nav className="navbar navbar-light bg-faded">
               <a className="navbar-brand" href="/">
-                <img src="https://www.logoai.com/uploads/icon/2017/06/29/14987185028816686.svg" width="90" height="47" alt=""/>
+                <img src={image2} width="70" height="55" alt=""/>
               </a>
            
             </nav>
             
             <ul className="nav justify-content-end">
               <li className="nav-item">
-                <a className="nav-link active" href="/">Home</a>
+                <Link className="nav-link active" to="/">Home</Link>
               </li>
+              {navWorkout}
+              {navMyWorkouts}
               <li className="nav-item">
-                <a className="nav-link" href="/workout">Workout</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/my_workouts">My Workouts</a>
-              </li>
-              <li className="nav-item">
-                <a className="btn btn-primary loginButton" href="/DashboardLogin">Log In</a>
+                <Link className="btn btn-primary loginButton" to="/DashboardLogin">Login</Link>
               </li>
             </ul>
 
@@ -43,11 +83,15 @@ class App extends Component {
         </nav>
 
         <Route path="/my_workouts" component={MyWorkouts}/>
-        <Route path="/workout" component={WorkoutScreen}/>
+        <Route path="/workout" render={() =>{
+          return <WorkoutScreen email={this.state.email} name={this.state.name}/>
+          }}/>
         <Route path="/login" component={Login}/>
         <Route exact path="/" component={HomePage}/>
         <Route path="/about" component={DashboardLogin}/>
-        <Route path="/DashboardLogin" component={DashboardLogin}/>
+        <Route path="/DashboardLogin" render={() =>{
+          return <DashboardLogin userInfo={this.userInfo.bind(this)} successfulLogin={this.successfulLogin.bind(this)} unSuccessfulLogin={this.unSuccessfulLogin.bind(this)}/>
+          }} />
 
         <div class="footerTest">
           <div id="motto">
@@ -70,7 +114,6 @@ class App extends Component {
         <div class="toe">
           <h3>Follow</h3>
           <div id="social">
-            <a id="fb" href="#" title="Facebook"></a>
             <a id="twitter" href="#" title="Twitter"></a>
           </div>
               

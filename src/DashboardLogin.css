@@ -16,11 +16,12 @@
     margin: 15px auto;
     padding: 15px;
     padding-left: 20px;
-    width: 200px;
+    width: 230px;
     text-align: left;
     color: white;
     border: none;
     outline: none;
+    font-size: 20px;
   }
   
   .btn-login:hover, 
@@ -51,6 +52,6 @@
   }
   
   .img-responsive {
-  height:700px;
+  height:650px;
   width: 100%;
   }

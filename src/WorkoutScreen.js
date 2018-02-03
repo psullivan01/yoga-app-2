@@ -4,6 +4,7 @@ import './WorkoutScreen.css';
 import WorkoutListItem from './WorkoutListItem.js';
 import Workout from './Workout.js'
 import Youtube from './Youtube.js'
+import axios from 'axios'
 
 var Promise = require('bluebird')
 
@@ -320,16 +321,31 @@ class WorkoutScreen extends Component {
 
 	launchWorkout(event) {
 		event.preventDefault()
+
+		var payload = {
+			email: this.props.email , 
+			name: this.props.name,
+			workout_date: new Date(),
+			workout_duration: this.state.timePose,
+			pose_array: this.state.workoutPoses
+		}
+
+
+		axios.post("/my_workouts", payload)
 		var intervalWorkout = this.intervalMoves(this.state.workoutPoses, this.state.posePictures, this.state.timePose)
+		
+					this.setState({
+						workoutShown: true
+					})
+		
+					this.displayPoses(intervalWorkout[2], intervalWorkout[1], intervalWorkout[0])
+					// this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
 
-		this.setState({
-			workoutShown: true
-		})
-
-		this.displayPoses(intervalWorkout[2], intervalWorkout[1], intervalWorkout[0])
-		console.log(this.state)
 	}
 
+
+
+			
 
 	render () {
 
@@ -433,23 +449,33 @@ class WorkoutScreen extends Component {
 
 		return (
 			
-		    <div className="container" id="topDiv">
-				{stepOne}
-		    	<div className="row">
-		      		{workoutCards}
-		        	<div className="col-lg-12">
-		        		{yogaForm}
-		        	</div>
-		        </div>
-		        <div className="row">
-		        	<div className="workoutScreen col-lg-12">
-		        		<div id="result">
-			            	{finalTable}
+		    <div id="topDiv">
+				<div className="container">
+					{stepOne}
+					<div className="row">
+						{workoutCards}
+						<div className="col-lg-12">
+							{yogaForm}
+						</div>
+					</div>
+				</div>
+				<div className="container">
+					<div className="row no-gutters">
+						<div className="workoutScreen col-lg-12">
+							<div id="result">
+								{finalTable}
+							</div>
+						</div>
+					</div>
+				</div>
+				<div className="container-fluid">
+					<div className="row no-gutters">
+						<div className="workoutScreen col-lg-12">
 							{workout}
 							{youtube}
-		            	</div>
-		          	</div>
-		       	</div>
+						</div>
+					</div>
+				</div>
 		    </div>
 		)
 	}
