@@ -27,8 +27,7 @@ padding-top:50px;
       
 }
 
-.card-img-top-pic {
-    border: 3px solid blue;
+.img-top-pic {
     text-align: center;
 }
 
@@ -36,6 +35,7 @@ padding-top:50px;
     background-image: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/S7FfzzQmliwca04xu/beautiful-sky-and-sea-at-dusk-background-reflections-in-the-calm-water_htbkgffkhe_thumbnail-full01.png');
     background-size: cover;
     background-repeat: no-repeat;
+    height: 850px;
 }
 
 #topdiv {

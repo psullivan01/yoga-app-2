@@ -34,13 +34,14 @@ Languages:
 - JavaScript
 - HTML5
 - CSS
-- jQuery
+- React
 API's Used
 - Youtube
 - 
 Other:
 - Font Awesome
 - Twitter Bootstrap
+- React Google Oauth
 
 Yoga App Screenshots: 
 
