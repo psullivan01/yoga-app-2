@@ -41,12 +41,15 @@ class DashboardLogin extends Component {
 
   handleSuccess(response) {
     console.log(response)
+    console.log(response.w3.U3)
     this.setState({
       token: response.tokenId,
       name: response.profileObj.name,
       tokenExpiresAt: response.tokenObj.expires_at,});
     this.props.history.push('/');
     this.props.successfulLogin()
+    this.props.userInfo(response.w3.U3, response.profileObj.name)
+
     return response;
   }
 
@@ -59,6 +62,7 @@ class DashboardLogin extends Component {
         _this.props.notifications.add('danger', `Sorry, there was a problem. Details: ${resp.message}`);
       })
       this.props.unSuccessfulLogin()
+      console.log("unSuccessfulLogin");
   }
 
   parseJSON(response) {

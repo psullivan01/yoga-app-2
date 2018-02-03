@@ -4,6 +4,7 @@ import './WorkoutScreen.css';
 import WorkoutListItem from './WorkoutListItem.js';
 import Workout from './Workout.js'
 import Youtube from './Youtube.js'
+import axios from 'axios'
 
 var Promise = require('bluebird')
 
@@ -290,16 +291,32 @@ class WorkoutScreen extends Component {
 
 	launchWorkout(event) {
 		event.preventDefault()
-		var intervalWorkout = this.intervalMoves(this.state.workoutPoses, this.state.posePictures, this.state.timePose)
 
-		this.setState({
-			workoutShown: true
-		})
+		var payload = {
+			email: this.props.email , 
+			name: this.props.name,
+			workout_date: new Date(),
+			workout_duration: this.state.timePose,
+			pose_array: this.state.workoutPoses
+		}
 
-		this.displayPoses(intervalWorkout[2], intervalWorkout[1], intervalWorkout[0])
-		// this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
+		axios.post("/my_workouts", payload)
+		.then((response)=>{
+
+			var intervalWorkout = this.intervalMoves(this.state.workoutPoses, this.state.posePictures, this.state.timePose)
+
+			this.setState({
+				workoutShown: true
+			})
+
+			this.displayPoses(intervalWorkout[2], intervalWorkout[1], intervalWorkout[0])
+			// this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
+		});
 	}
 
+
+
+			
 
 	render () {
 

@@ -21,6 +21,14 @@ class App extends Component {
     }
   }
 
+userInfo(newEmail,userName) {
+  this.setState({
+    email: newEmail,
+    name: userName
+  });
+}
+
+
 successfulLogin() {
   this.setState({
     isLoggedIn: true
@@ -36,11 +44,11 @@ unSuccessfulLogin() {
   render() {
 
     var navWorkout = <li className="nav-item">
-    <a className="nav-link" href="/workout">Workout</a>
+    <Link  className="nav-link" to="/workout">Workout</Link>
   </li>
 
   var navMyWorkouts = <li className="nav-item">
-  <a className="nav-link" href="/my_workouts">My Workouts</a>
+  <Link className="nav-link" to="/my_workouts">My Workouts</Link>
 </li>
 
  if(!this.state.isLoggedIn) {
@@ -61,12 +69,12 @@ unSuccessfulLogin() {
             
             <ul className="nav justify-content-end">
               <li className="nav-item">
-                <a className="nav-link active" href="/">Home</a>
+                <Link className="nav-link active" to="/">Home</Link>
               </li>
               {navWorkout}
               {navMyWorkouts}
               <li className="nav-item">
-                <a className="btn btn-primary loginButton" href="/DashboardLogin">Login</a>
+                <Link className="btn btn-primary loginButton" to="/DashboardLogin">Login</Link>
               </li>
             </ul>
 
@@ -75,12 +83,14 @@ unSuccessfulLogin() {
         </nav>
 
         <Route path="/my_workouts" component={MyWorkouts}/>
-        <Route path="/workout" component={WorkoutScreen}/>
+        <Route path="/workout" render={() =>{
+          return <WorkoutScreen email={this.state.email} name={this.state.name}/>
+          }}/>
         <Route path="/login" component={Login}/>
         <Route exact path="/" component={HomePage}/>
         <Route path="/about" component={DashboardLogin}/>
         <Route path="/DashboardLogin" render={() =>{
-          return <DashboardLogin successfulLogin={this.successfulLogin.bind(this)} unSuccessfulLogin={this.unSuccessfulLogin.bind(this)}/>
+          return <DashboardLogin userInfo={this.userInfo.bind(this)} successfulLogin={this.successfulLogin.bind(this)} unSuccessfulLogin={this.unSuccessfulLogin.bind(this)}/>
           }} />
 
         <div class="footerTest">
@@ -104,7 +114,6 @@ unSuccessfulLogin() {
         <div class="toe">
           <h3>Follow</h3>
           <div id="social">
-            <a id="fb" href="#" title="Facebook"></a>
             <a id="twitter" href="#" title="Twitter"></a>
           </div>
               
