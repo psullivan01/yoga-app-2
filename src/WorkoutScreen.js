@@ -340,6 +340,7 @@ class WorkoutScreen extends Component {
 		
 					this.displayPoses(intervalWorkout[2], intervalWorkout[1], intervalWorkout[0])
 					// this.displayPoses(this.state.timePose, this.state.posePictures, this.state.workoutPoses)
+
 	}
 
 
