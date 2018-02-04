@@ -26,6 +26,8 @@ userInfo(newEmail, userName) {
     email: newEmail,
     name: userName
   });
+
+  localStorage.setItem('email', newEmail)
 }
 
 
@@ -82,10 +84,12 @@ unSuccessfulLogin() {
 
         </nav>
 
-        <Route path="/my_workouts" component={MyWorkouts}/>
+        <Route path="/my_workouts" render={()=>{
+          return <MyWorkouts email={this.state.email} name={this.state.name}/>
+        }}/>
         <Route path="/workout" render={()=>{
             return <WorkoutScreen email={this.state.email} name={this.state.name}/>
-          }}/>
+        }}/>
         <Route path="/login" component={Login}/>
         <Route exact path="/" component={HomePage}/>
         <Route path="/about" component={DashboardLogin}/>
