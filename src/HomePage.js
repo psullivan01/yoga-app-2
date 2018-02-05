@@ -8,6 +8,13 @@ import Panel3 from './img/YogaMat.png';
 class HomePage extends Component {
 
 	render () {
+
+    if (this.props.loggedIn) {
+      var loginButton = <a className="btn btn-primary menuButton" href="/DashboardLogin">LOGIN</a>
+    } else {
+      var loginButton = ""
+    }
+
 		return (
 
       <div>
@@ -18,7 +25,7 @@ class HomePage extends Component {
           <div className="row">
             <div className="col-xl-9 mx-auto">
               <img src={image} width="850" height="300" alt="No Image"/>
-              <div><a className="btn btn-primary menuButton" href="/DashboardLogin">LOGIN</a></div>
+              <div>{loginButton}</div>
             </div>
           </div>
         </div>
