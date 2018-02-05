@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import MyWorkoutsListItem from './MyWorkoutsListItem.js'
+import './MyWorkout.css';
 
 
 class MyWorkouts extends Component {
@@ -47,7 +48,7 @@ class MyWorkouts extends Component {
 		}
 
 		return (
-			<div>
+			<div className="container">
 				<table class="table table-fixed">
 					<thead>
 						<tr class="tableHeader">
