@@ -53,6 +53,8 @@ unSuccessfulLogin() {
   <Link className="nav-link" to="/my_workouts">My Workouts</Link>
 </li>
 
+  var homeLoginButton = 
+
  if(!this.state.isLoggedIn) {
   navWorkout = ""
   navMyWorkouts = ""
@@ -91,7 +93,9 @@ unSuccessfulLogin() {
             return <WorkoutScreen email={this.state.email} name={this.state.name}/>
         }}/>
         <Route path="/login" component={Login}/>
-        <Route exact path="/" component={HomePage}/>
+        <Route exact path="/" render={()=>{
+          return <HomePage loggedIn={this.state.isLoggedIn}/>
+        }} />
         <Route path="/about" component={DashboardLogin}/>
         <Route path="/DashboardLogin" render={() =>{
           return <DashboardLogin userInfo={this.userInfo.bind(this)} successfulLogin={this.successfulLogin.bind(this)} unSuccessfulLogin={this.unSuccessfulLogin.bind(this)}/>
