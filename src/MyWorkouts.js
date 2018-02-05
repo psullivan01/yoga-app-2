@@ -13,9 +13,7 @@ class MyWorkouts extends Component {
 		}
 	}
 
-
-
-	componentDidMount() {
+	runGet() {
 		var url = '/my_workouts/' + this.state.email
 
 		axios.get(url)
@@ -34,16 +32,44 @@ class MyWorkouts extends Component {
 
 		if (this.state.workoutData) {
 			 var workoutTable = this.state.workoutData.map((row, index)=>{
-			 	console.log(row.name)
+
+			 	if (row.muscle_array) {
+			 		var uniqueMuscles = row.muscle_array.reduce((a, b)=>{
+			 			if (a.indexOf(b) < 0) {
+			 				a.push(b)
+			 			}
+			 			return a
+			 		}, [])
+
+			 		var commaMuscles = uniqueMuscles.join(", ")
+			 	} else {
+			 		var commaMuscles = " "
+			 	}
+
+			 	if (row.pose_array) {
+			 		var uniquePoses = row.pose_array.reduce((a, b)=>{
+			 			if (a.indexOf(b) < 0) {
+			 				a.push(b)
+			 			}
+			 			return a
+			 		}, [])
+
+			 		var commaPose = uniquePoses.join(", ")
+			 	} else {
+			 		var commaPose = " "
+			 	}
+
 				return (
 					<tr>
 						<td>{row.workout_date}</td>
 						<td>{row.workout_duration}</td>
-						<td>{row.muscle_array}</td>
-						<td>{row.pose_array}</td>
+						<td>{commaMuscles}</td>
+						<td>{commaPose}</td>
 					</tr>
 				)
 			})
+		} else {
+			this.runGet()
 		}
 
 		return (
