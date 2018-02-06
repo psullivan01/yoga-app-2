@@ -64,7 +64,7 @@ unSuccessfulLogin() {
       var name = this.state.name
       var firstName = name.substr(0, name.indexOf(' '))
       console.log('first name here:', firstName)
-      var welcomeMessage = 'Hello, ' + firstName
+      var welcomeMessage = 'Welcome, ' + firstName
     }
 
     return (
@@ -76,11 +76,12 @@ unSuccessfulLogin() {
               <a className="navbar-brand" href="/">
                 <img src={image2} width="70" height="55" alt=""/>
               </a>
+              <div className="welcomeMessage">{welcomeMessage}</div>
            
             </nav>
             
             <ul className="nav justify-content-end">
-              <li className="nav">{welcomeMessage}</li>
+              
               <li className="nav-item">
                 <Link className="nav-link active" to="/">Home</Link>
               </li>

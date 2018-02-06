@@ -31,6 +31,11 @@ padding-top: 0px;
   padding: 0rem 0rem;
 }
 
+.welcomeMessage {
+  font: 16pt 'Century Gothic';
+  color:#555555; 
+  margin: 8px 1px 0px 5px;
+}
 
 header.masthead {
   position: relative;
