@@ -62,7 +62,7 @@ class MyWorkouts extends Component {
 
 				return (
 					<tr>
-						<td>{row.workout_date}</td>
+						<td>{row.workout_date.split("T")[0]}</td>
 						<td>{row.workout_duration}</td>
 						<td>{commaMuscles}</td>
 						<td>{commaPose}</td>
@@ -79,7 +79,7 @@ class MyWorkouts extends Component {
 				<table class="table table-fixed">
 					<thead>
 						<tr class="tableHeader">
-							<th class="col-xs-3">Date</th>
+							<th class="col-xs-3 dateRow">Date</th>
 							<th class="col-xs-6">Duration</th>
 							<th class="col-xs-6">Muscles</th>
 							<th class="col-xs-6">Poses</th>
