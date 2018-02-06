@@ -9,7 +9,7 @@ class HomePage extends Component {
 
 	render () {
 
-    if (this.props.loggedIn) {
+    if (!this.props.loggedIn) {
       var loginButton = <a className="btn btn-primary menuButton" href="/DashboardLogin">LOGIN</a>
     } else {
       var loginButton = ""
