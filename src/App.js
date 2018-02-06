@@ -53,7 +53,6 @@ unSuccessfulLogin() {
   <Link className="nav-link" to="/my_workouts">My Workouts</Link>
 </li>
 
-  var homeLoginButton = 
 
  if(!this.state.isLoggedIn) {
   navWorkout = ""
