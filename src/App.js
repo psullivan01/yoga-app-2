@@ -54,10 +54,19 @@ unSuccessfulLogin() {
 </li>
 
 
- if(!this.state.isLoggedIn) {
-  navWorkout = ""
-  navMyWorkouts = ""
- }
+    if(!this.state.isLoggedIn) {
+      navWorkout = ""
+      navMyWorkouts = ""
+      var welcomeMessage = ""
+     }  
+
+    if (this.state.name) {
+      var name = this.state.name
+      var firstName = name.substr(0, name.indexOf(' '))
+      console.log('first name here:', firstName)
+      var welcomeMessage = 'Hello, ' + firstName
+    }
+
     return (
 
       <div>
@@ -71,6 +80,7 @@ unSuccessfulLogin() {
             </nav>
             
             <ul className="nav justify-content-end">
+              <li className="nav">{welcomeMessage}</li>
               <li className="nav-item">
                 <Link className="nav-link active" to="/">Home</Link>
               </li>
