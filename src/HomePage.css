@@ -139,8 +139,8 @@ header.masthead {
   top: 15%;
   padding-right: 1000px;
   width: 100%;
-  color:#ffffff;
-  font-size: 70px;
+  color:#272727;
+  font-size: 75px;
   font-family: 'Century Gothic';
 }
 
@@ -150,7 +150,7 @@ header.masthead {
   padding-right: 300px;
   padding-left: 300px;
   width: 100%;
-  color:#ffffff;
+  color:#444444;
   font-size: 30px;
   font-family: 'Century Gothic';
 }

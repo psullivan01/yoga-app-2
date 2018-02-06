@@ -75,6 +75,7 @@ class MyWorkouts extends Component {
 
 		return (
 			<div className="container">
+				<div className="durationText">My Workouts</div>
 				<table class="table table-fixed">
 					<thead>
 						<tr class="tableHeader">

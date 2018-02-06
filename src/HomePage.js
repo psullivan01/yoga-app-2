@@ -69,12 +69,12 @@ class HomePage extends Component {
 
           <div class="row" id="box-search">
     <div class="thumbnail text-center">
-        <img src="https://static1.squarespace.com/static/550c9cd6e4b0e1eb26527726/t/58e3cf1703596e548661fac8/1512418113229/background.jpg?format=1500w" alt="" class="img-responsive"/>
+        <img src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/V7hRLuVqxikh75uky/abstract-light-grey-3d-polygonal-motion-background-for-modern-reports-and-presetations-4k-seamless-loop-animation-prores_s7sptfhc_thumbnail-full01.png" alt="" class="img-responsive"/>
         <div class="yogaCaption">
             <p>yogapro</p>
         </div>
         <div class="aboutYogapro">
-        <p>Yogapro’s flexible workouts gives users the ability to focus on multiple areas of the body for your workout routine. Allowing users to regenerate selected poses, control the duration, and view correct pose illustrations guarantee optimal workout results. Regardless of your skill level, Yogapro’s custom workout routine allows the user to find balance, focus, and determination during your workout.</p>
+        <p>Our flexible workouts gives users the ability to focus on multiple areas of the body for your workout routine. Allowing users to regenerate selected poses, control the duration, and view correct pose illustrations guarantee optimal workout results. Regardless of your skill level, the custom workout routines allows the user to find balance, focus, and determination during your workout.</p>
         </div>
     </div>
 </div>
